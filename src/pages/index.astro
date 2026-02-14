@@ -3,31 +3,37 @@ import Layout from '../layouts/Layout.astro';
 
 const posts = [
 	{
-		title: "Google Ads 2026: Cum să supraviețuiești recesiunii tehnice prin campanii axate pe Profit, nu pe Volum",
-		description: "Analizăm shift-ul radical către Profit-First Bidding și de ce volumul de click-uri este acum o capcană.",
+		title: "Google Ads 2026: Strategii în Recesiune",
+		description: "Cum să muți focusul pe Profit-First Bidding când piața se contractă.",
 		url: "/blog/google-ads-2026-recesiune",
-		tag: "Trending",
+		tag: "Economic",
+		date: "14 Februarie 2026"
+	},
+	{
+		title: "AdTech 2026: Revoluția First-Party Data",
+		description: "Ghid tehnic despre Server-Side Tracking și supraviețuirea fără cookies.",
+		url: "/blog/adtech-2026-tracking",
+		tag: "Tehnologie",
 		date: "14 Februarie 2026"
 	}
 ];
 ---
 
 <Layout title="Roa Marketing | Hub de Performanță AdOps & Media Buying">
-	<!-- Hero Section -->
 	<header class="relative overflow-hidden pt-16 pb-12 border-b border-white/5">
 		<div class="container mx-auto px-6 relative z-10">
 			<div class="max-w-4xl">
 				<nav class="flex gap-8 mb-16 text-sm font-bold uppercase tracking-widest text-slate-500">
-					<a href="/" class="text-white">Acasă</a>
+					<a href="/" class="text-white border-b border-cyan-500 pb-1">Acasă</a>
 					<a href="/despre" class="hover:text-cyan-400 transition-colors">Expertiză</a>
-					<a href="#simulator" class="hover:text-cyan-400 transition-colors">Simulator ROI</a>
-					<a href="#contact" class="hover:text-cyan-400 transition-colors">Audit</a>
+					<a href="/servicii/tracking-fara-cookies" class="hover:text-cyan-400 transition-colors">Servicii</a>
+					<a href="#simulator" class="hover:text-cyan-400 transition-colors">Simulator</a>
 				</nav>
-				<h1 class="text-6xl md:text-8xl font-black leading-[0.9] mb-8">
-					Domină Piața prin <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">AdOps de Elită.</span>
+				<h1 class="text-6xl md:text-8xl font-black leading-[0.9] mb-8 italic">
+					ROA <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">ENGINE.</span>
 				</h1>
 				<p class="text-xl text-slate-400 max-w-2xl leading-relaxed">
-					Nu urmărim click-uri. Construim sisteme de profitabilitate care scalează business-uri în era post-cookie.
+					Transformăm datele în profit. Arhitectură de Media Buying pentru 2026.
 				</p>
 			</div>
 		</div>
@@ -35,149 +41,124 @@ const posts = [
 
 	<main class="container mx-auto px-6">
 		
-		<!-- SIMULATOR PROFITABILITATE (THE ROA ENGINE) -->
+		<!-- SIMULATOR WITH CHART -->
 		<section id="simulator" class="py-24">
-			<div class="bg-white/5 border border-white/10 rounded-[48px] overflow-hidden backdrop-blur-2xl shadow-2xl">
+			<div class="bg-white/5 border border-white/10 rounded-[48px] overflow-hidden backdrop-blur-2xl">
 				<div class="grid grid-cols-1 lg:grid-cols-2">
-					<!-- Controls -->
 					<div class="p-12 border-r border-white/10">
-						<h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
-							<span class="w-8 h-8 rounded-full bg-cyan-500 flex items-center justify-center text-black text-sm">01</span>
-							Datele Tale Ads
-						</h2>
-						
+						<h2 class="text-3xl font-bold mb-8">Configurează Variabilele</h2>
 						<div class="space-y-10">
 							<div class="space-y-4">
-								<div class="flex justify-between items-center">
-									<label class="text-slate-400 font-medium">Buget Lunar (€)</label>
-									<span id="val-budget" class="text-2xl font-black text-white">5000</span>
-								</div>
-								<input type="range" id="input-budget" min="500" max="50000" step="500" value="5000" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500">
+								<div class="flex justify-between items-center"><label class="text-slate-400">Buget Lunar (€)</label><span id="val-budget" class="text-2xl font-black">5000</span></div>
+								<input type="range" id="input-budget" min="1000" max="100000" step="1000" value="5000" class="w-full accent-cyan-500">
 							</div>
-
 							<div class="space-y-4">
-								<div class="flex justify-between items-center">
-									<label class="text-slate-400 font-medium">ROAS Actual (x)</label>
-									<span id="val-roas" class="text-2xl font-black text-white">3.5</span>
-								</div>
-								<input type="range" id="input-roas" min="1" max="15" step="0.1" value="3.5" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-purple-500">
+								<div class="flex justify-between items-center"><label class="text-slate-400">ROAS Actual (x)</label><span id="val-roas" class="text-2xl font-black">3.0</span></div>
+								<input type="range" id="input-roas" min="0.5" max="10" step="0.1" value="3.0" class="w-full accent-purple-500">
 							</div>
-
 							<div class="space-y-4">
-								<div class="flex justify-between items-center">
-									<label class="text-slate-400 font-medium">Marjă Profit (%)</label>
-									<span id="val-margin" class="text-2xl font-black text-white">30</span>
-								</div>
-								<input type="range" id="input-margin" min="5" max="80" step="5" value="30" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-500">
+								<div class="flex justify-between items-center"><label class="text-slate-400">Marjă Netă (%)</label><span id="val-margin" class="text-2xl font-black">25</span></div>
+								<input type="range" id="input-margin" min="5" max="70" step="5" value="25" class="w-full accent-blue-500">
 							</div>
 						</div>
 					</div>
 
-					<!-- Results -->
-					<div class="p-12 bg-gradient-to-br from-cyan-600/10 to-blue-900/20 flex flex-col justify-between">
-						<div>
-							<h2 class="text-3xl font-bold mb-8 flex items-center gap-3 text-white">
-								<span class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-black text-sm">02</span>
-								Impact ROA Engine
-							</h2>
-
-							<div class="grid grid-cols-2 gap-6 mb-12">
-								<div class="p-6 rounded-3xl bg-black/40 border border-white/5">
-									<p class="text-xs text-slate-500 uppercase font-bold mb-2">Venit Lunar</p>
-									<p id="res-revenue" class="text-3xl font-black text-white">17,500€</p>
-								</div>
-								<div class="p-6 rounded-3xl bg-black/40 border border-white/5">
-									<p class="text-xs text-slate-500 uppercase font-bold mb-2">Profit Net Real</p>
-									<p id="res-profit" class="text-3xl font-black text-white">5,250€</p>
-								</div>
-							</div>
-
-							<div class="p-8 rounded-[32px] bg-cyan-500/10 border border-cyan-500/20 relative overflow-hidden group">
-								<div class="relative z-10">
-									<p class="text-cyan-400 font-bold mb-2">💰 Potential de Optimizare</p>
-									<h4 class="text-4xl font-black text-white mb-2" id="res-gap">+3,500€</h4>
-									<p class="text-slate-400 text-sm">Profit lunar adițional prin optimizarea AdOps (est. +20%).</p>
-								</div>
-								<div class="absolute -right-10 -bottom-10 opacity-10 group-hover:scale-110 transition-transform">
-									<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-								</div>
-							</div>
+					<div class="p-12 bg-black/20 relative">
+						<h2 class="text-3xl font-bold mb-8 text-white">Analiza Profitului</h2>
+						<div class="h-[250px] mb-8">
+							<canvas id="profitChart"></canvas>
 						</div>
-
-						<div class="mt-12">
-							<a href="#contact" class="block w-full py-5 bg-white text-black text-center font-black text-xl rounded-2xl hover:bg-cyan-400 transition-all shadow-xl">
-								Recuperează Profitul Pierdut
-							</a>
+						<div class="p-6 rounded-2xl bg-cyan-500/10 border border-cyan-500/20">
+							<p class="text-sm text-cyan-400 font-bold mb-1">Potențial ROA Optimization</p>
+							<h4 class="text-4xl font-black" id="res-gap">+0€</h4>
 						</div>
+						<a href="#contact" class="mt-8 block w-full py-4 bg-white text-black text-center font-black rounded-xl hover:bg-cyan-400 transition-all">Rezervă Audit Tehnic</a>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<!-- Trending Section -->
-		<section id="trending" class="mb-32">
-			<h2 class="text-4xl font-bold mb-12">Analize Recente</h2>
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+		<!-- UPDATED BLOG SECTION -->
+		<section class="py-24 border-t border-white/5">
+			<h2 class="text-4xl font-bold mb-12">Raportări de Piață 2026</h2>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
 				{posts.map(post => (
-					<a href={post.url} class="group block p-8 rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-xl hover:border-cyan-500/50 transition-all">
-						<div class="flex justify-between items-start mb-6">
-							<span class="px-3 py-1 rounded-lg bg-cyan-500/10 text-cyan-400 text-xs font-bold uppercase tracking-wider">{post.tag}</span>
-							<span class="text-slate-500 text-xs">{post.date}</span>
-						</div>
-						<h3 class="text-2xl font-bold mb-4 group-hover:text-cyan-400 transition-colors">{post.title}</h3>
-						<p class="text-slate-400 leading-relaxed mb-6">{post.description}</p>
-						<span class="text-sm font-bold flex items-center gap-2 text-white">Citește mai mult →</span>
+					<a href={post.url} class="group border-l border-white/10 pl-8 py-4 hover:border-cyan-500 transition-all">
+						<span class="text-cyan-400 text-xs font-bold uppercase tracking-tighter">{post.tag}</span>
+						<h3 class="text-3xl font-bold mt-2 mb-4 group-hover:text-cyan-400">{post.title}</h3>
+						<p class="text-slate-400 mb-4">{post.description}</p>
+						<span class="text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity">Citește Analiza →</span>
 					</a>
 				))}
 			</div>
 		</section>
-
 	</main>
 
-	<footer id="contact" class="py-32 bg-white text-black rounded-t-[64px]">
+	<footer id="contact" class="py-32 bg-slate-900 border-t border-white/5">
 		<div class="container mx-auto px-6 text-center">
-			<h2 class="text-6xl font-black mb-8">Ești gata pentru scalare?</h2>
-			<a href="mailto:contact@roa-marketing.com" class="inline-block px-12 py-6 bg-black text-white font-black text-2xl rounded-3xl hover:scale-105 transition-all shadow-2xl">Vreau Auditul Gratuit</a>
-			<p class="mt-12 text-sm text-slate-500 font-bold uppercase tracking-widest">© 2026 ROA MARKETING | ADOPS EXCELLENCE</p>
+			<h2 class="text-5xl font-black mb-8">Treci la nivelul următor.</h2>
+			<p class="text-xl text-slate-400 mb-12">AdOps-ul nu este o opțiune în 2026. Este supraviețuire.</p>
+			<a href="mailto:contact@roa-marketing.com" class="px-12 py-6 bg-cyan-500 text-black font-black text-xl rounded-2xl">Start Parteneriat</a>
 		</div>
 	</footer>
 
-	<script>
-		const budgetInput = document.getElementById('input-budget');
-		const roasInput = document.getElementById('input-roas');
-		const marginInput = document.getElementById('input-margin');
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script is:inline>
+		let chart;
+		const ctx = document.getElementById('profitChart');
 
-		const budgetVal = document.getElementById('val-budget');
-		const roasVal = document.getElementById('val-roas');
-		const marginVal = document.getElementById('val-margin');
-
-		const revRes = document.getElementById('res-revenue');
-		const profRes = document.getElementById('res-profit');
-		const gapRes = document.getElementById('res-gap');
-
-		function update() {
-			const b = parseInt(budgetInput.value);
-			const r = parseFloat(roasInput.value);
-			const m = parseInt(marginInput.value) / 100;
-
-			budgetVal.innerText = b.toLocaleString();
-			roasVal.innerText = r.toFixed(1);
-			marginVal.innerText = (m * 100).toFixed(0);
-
-			const revenue = b * r;
-			const profit = (revenue * m) - b;
-			
-			// Gap logic: assuming we can improve ROAS by 20%
-			const improvedProfit = (revenue * 1.2 * m) - b;
-			const gap = Math.max(0, improvedProfit - profit);
-
-			revRes.innerText = Math.round(revenue).toLocaleString() + "€";
-			profRes.innerText = Math.round(profit).toLocaleString() + "€";
-			gapRes.innerText = "+" + Math.round(gap).toLocaleString() + "€";
+		function initChart() {
+			chart = new Chart(ctx, {
+				type: 'bar',
+				data: {
+					labels: ['Actual', 'Optimizat (ROA)'],
+					datasets: [{
+						label: 'Profit Net (€)',
+						data: [0, 0],
+						backgroundColor: ['#334155', '#06b6d4'],
+						borderRadius: 12
+					}]
+				},
+				options: {
+					responsive: true,
+					maintainAspectRatio: false,
+					scales: { 
+						y: { beginAtZero: true, grid: { color: '#1e293b' }, ticks: { color: '#64748b' } },
+						x: { grid: { display: false }, ticks: { color: '#fff', font: { weight: 'bold' } } }
+					},
+					plugins: { legend: { display: false } }
+				}
+			});
 		}
 
-		budgetInput.addEventListener('input', update);
-		roasInput.addEventListener('input', update);
-		marginInput.addEventListener('input', update);
+		function update() {
+			const b = parseInt(document.getElementById('input-budget').value);
+			const r = parseFloat(document.getElementById('input-roas').value);
+			const m = parseInt(document.getElementById('input-margin').value) / 100;
+
+			document.getElementById('val-budget').innerText = b.toLocaleString();
+			document.getElementById('val-roas').innerText = r.toFixed(1);
+			document.getElementById('val-margin').innerText = (m * 100).toFixed(0);
+
+			const currentRevenue = b * r;
+			const currentProfit = (currentRevenue * m) - b;
+			
+			const optimizedROAS = r * 1.25; // +25% optimization
+			const optimizedProfit = (b * optimizedROAS * m) - b;
+			
+			const gap = Math.max(0, optimizedProfit - currentProfit);
+			document.getElementById('res-gap').innerText = "+" + Math.round(gap).toLocaleString() + "€";
+
+			chart.data.datasets[0].data = [Math.round(currentProfit), Math.round(optimizedProfit)];
+			chart.update();
+		}
+
+		document.addEventListener('DOMContentLoaded', () => {
+			initChart();
+			update();
+			['input-budget', 'input-roas', 'input-margin'].forEach(id => {
+				document.getElementById(id).addEventListener('input', update);
+			});
+		});
 	</script>
 </Layout>
