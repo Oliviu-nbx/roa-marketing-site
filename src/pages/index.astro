@@ -20,19 +20,7 @@ const posts = [
 ---
 
 <Layout title="Roa Marketing — Știri & Analize">
-	<header class="relative overflow-hidden pt-12 pb-8 border-b border-white/5">
-		<div class="container mx-auto px-6 relative z-10">
-			<nav class="flex gap-8 mb-6 text-sm font-bold uppercase tracking-widest text-slate-500">
-				<a href="/" class="text-white border-b border-cyan-500 pb-1">Știri</a>
-				<a href="/despre" class="hover:text-cyan-400 transition-colors">Despre</a>
-				<a href="/contact" class="hover:text-cyan-400 transition-colors">Contact</a>
-			</nav>
-			<h1 class="text-4xl md:text-6xl font-black leading-tight mb-4">Roa Marketing — Știri și analize din marketingul digital</h1>
-			<p class="text-lg text-slate-400 max-w-2xl leading-relaxed">Actualizări zilnice, analize și ghiduri practice pentru profesioniștii în marketing și hosting din România.</p>
-		</div>
-	</header>
-
-	<main class="container mx-auto px-6 py-12">
+	<div class="container mx-auto px-6 py-12">
 		<section class="py-8">
 			<h2 class="text-3xl font-bold mb-6">Ultimele articole</h2>
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -55,11 +43,5 @@ const posts = [
 				<a href="/tag/security" class="px-4 py-2 bg-white/5 rounded-md">Securitate</a>
 			</div>
 		</section>
-	</main>
-
-	<footer class="py-12 bg-slate-900 border-t border-white/5">
-		<div class="container mx-auto px-6 text-center">
-			<p class="text-slate-400">© {new Date().getFullYear()} Roa Marketing — Știri. Pentru colaborări: <a href="mailto:contact@roa-marketing.com" class="text-cyan-400">contact@roa-marketing.com</a></p>
-		</div>
-	</footer>
+	</div>
 </Layout>
