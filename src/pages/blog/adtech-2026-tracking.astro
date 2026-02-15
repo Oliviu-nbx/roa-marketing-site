@@ -1,42 +1,88 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+title: "AdTech 2026 — Tracking modern: supraviețuire, responsabilitate și arhitecturi hibride"
+description: "Un ghid exhaustiv despre tracking-ul publicitar în 2026: ce funcționează, cum sunt artizanate soluțiile first‑party, privacy‑by‑design, măsurare probabilistică și practici pentru marketerii orientați pe performanță."
+keywords: ["adtech 2026","tracking 2026","first-party data","privacy-by-design","attribution","cookieless"]
+layout: ../../layouts/BlogLayout.astro
+pubDate: "2026-02-15"
 ---
 
-<Layout title="AdTech 2026: Tracking First-Party | Roa Marketing">
-	<main class="container mx-auto px-6 py-20 max-w-4xl">
-		<article class="prose prose-invert lg:prose-xl">
-			<span class="text-purple-400 font-bold uppercase tracking-widest text-sm italic">Tehnologie & AdOps 2026</span>
-			<h1 class="text-6xl font-black mt-4 mb-8 leading-tight">Moartea Cookie-urilor Third-Party: Ghid de Supraviețuire</h1>
-			
-			<p class="text-xl text-slate-300 mb-12">
-				În 2026, ecosistemul digital s-a schimbat ireversibil. Google Chrome a eliminat complet suportul pentru cookies de la terți, iar companiile care nu s-au adaptat pierd peste 50% din datele de conversie.
-			</p>
+# AdTech 2026 — Tracking modern: supraviețuire, responsabilitate și arhitecturi hibride
 
-			<h2 class="text-3xl font-bold mt-12 mb-6">De ce "Conversion API" nu mai este opțional?</h2>
-			<p class="text-slate-400">
-				Platformele precum Meta (Facebook/Instagram) și TikTok au trecut la un model de tracking bazat exclusiv pe semnale trimise direct de pe server. Dacă site-ul tău se bazează încă pe un pixel instalat în browser (Client-Side), algoritmul tău este "orb". 
-			</p>
+Introducere
 
-			<div class="bg-gradient-to-r from-purple-900/20 to-blue-900/20 p-8 rounded-3xl border border-purple-500/30 my-10">
-				<h3 class="text-white font-bold mb-4">Statistica anului 2026:</h3>
-				<p class="text-slate-300">Magazinele online care folosesc <strong>Server-Side Tracking</strong> raportează un ROAS cu 22% mai mare față de cele care folosesc tracking tradițional, datorită atribuirii corecte a datelor.</p>
-			</div>
+Ecosistemul publicitar din 2026 este definit de două forțe simultane: presiunea pentru transparență și confidențialitate, și nevoia continuă a marketerilor de măsurare precisă a performanței. Acest articol oferă o analiză detaliată a tehnologiilor, practicilor și arhitecturilor care definesc tracking‑ul modern: de la colectarea first‑party și unificarea schemelor de evenimente, la modele probabilistice, server‑side tracking și principii de privacy‑by‑design.
 
-			<h2 class="text-3xl font-bold mt-12 mb-6">Noua Ordine: First-Party Data</h2>
-			<p class="text-slate-400">
-				Misiunea ta ca Media Buyer în 2026 este să colectezi date proprii. Iată 3 tactici obligatorii:
-			</p>
-			<ul class="list-disc list-inside text-slate-400 space-y-4">
-				<li><strong>Identificatori unici hashed:</strong> Trimite email-ul și telefonul clientului (criptat) înapoi către platforme pentru a "potrivi" conversiile.</li>
-				<li><strong>GTM Server-Side:</strong> Găzduiește-ți propriul container de tracking pe un subdomeniu propriu pentru a trece de AdBlockere.</li>
-				<li><strong>Predictive Audiences:</strong> Folosește datele de server pentru a crea audiențe Lookalike mult mai precise.</li>
-			</ul>
+Context și schimbări majore
 
-			<div class="mt-20 p-12 rounded-[48px] bg-white text-black">
-				<h3 class="text-4xl font-black mb-6">Ești pregătit pentru era First-Party?</h3>
-				<p class="text-lg mb-10">Implementăm infrastructură de tracking Server-Side în 48 de ore pentru business-uri scalabile.</p>
-				<a href="/servicii/tracking-fara-cookies" class="px-8 py-4 bg-purple-600 text-white font-bold rounded-xl hover:bg-black transition-all">Vezi Detalii Tehnice</a>
-			</div>
-		</article>
-	</main>
-</Layout>
+- Eliminarea treptată a cookie‑urilor terțe a accelerat adopția de soluții first‑party și abordări server‑side.
+- Modelele de predicție (machine learning) sunt folosite pentru a estima conversiile lipsă și a reconstrui trasee de customer journey cu incertitudine cuantificată.
+- Reglementări mai stricte (GDPR/echivalente) impun documentare, minimizare a datelor și retenție limitată.
+
+## Analiză Tehnică Detaliată
+
+Arhitectura recomandată
+
+1) Collect → Normalize → Store
+- Collect: evenimente first‑party (page_view, add_to_cart, purchase, lead), webhook‑uri pentru conversii server‑to‑server și integrare CRM.
+- Normalize: un layer ETL care validează schema (OpenTelemetry/JSON schema), adaugă metadate (source, campaign_id, intent_signal) și anonimizează câmpurile sensibile.
+- Store: data lake + data warehouse (event store pentru modelare în timp real, DWH pentru cohortare și LTV calculat).
+
+2) Deterministic + Probabilistic Matching
+- Deterministic: user_id, email hash, device_id — folosește-le când există consimțământ.
+- Probabilistic: modele care estimează mapping‑uri între sesiuni când identitatea nu este clară; însoțite de intervale de încredere.
+
+3) Server-side Tagging
+- Mută logica critică (conversii, enrichments) pe server pentru a reduce pierderile de semnal și a controla datele.
+- Exemplu stack: reverse proxy → edge compute (Cloudflare Workers) → ingestion API → processing pipeline.
+
+Modelare și imputare
+
+- Modele de imputare a conversiilor: folosește modele bayesiene pentru a propaga incertitudinea în KPI‑uri (ex.: ROAS estimat = distribuiție, nu valoare punctuală).
+- Validare: păstrează subseturi cu tracking complet (paneles) pentru a valida predicțiile și ajusta bias‑ul.
+
+Securitate și conformitate
+
+- Minimization: colectează doar ce e necesar pentru scopul declarat.
+- Pseudonimizare la sursă: hashing cu salt rotativ și chei gestionate central.
+- Audit trail: înregistrează procesările și accesul la date pentru RMAs și DSP.
+
+## Studii de Caz (Simulate)
+
+Studiu A — Retail D2C
+
+Context: brand D2C cu trafic internațional, pierdere semnificativă de semnal după blocarea cookie‑urilor.
+
+Soluție: implementare server‑side tagging, sincronizare CRM, model probabilistic pentru atribuție și cohort analysis la 90/180 zile.
+
+Rezultate simulate: +18% în atribuirea conversiilor corecte către campanii paid, +12% în estimarea LTV pentru clienții noi.
+
+Studiu B — Marketplace Local
+
+Context: marketplace cu tranzacții offline frecvente (ridicări), date incomplete de la POS.
+
+Soluție: integrări POS → event ingestion API, reconciliere zilnică prin batch și matching probabilistic pentru rezervări convertite offline.
+
+Rezultate simulate: reducere 25% a discrepanțelor între platforme; îmbunătățire a ROAS raportat de 0.3 puncte.
+
+## Predicții Strategice
+
+- Consolidarea datelor first‑party va crea avantaje competitive majore: companiile cu pipeline-uri robuste vor vedea costuri mai mici pe achiziție pe termen lung.
+- Modelele proprietare de atribuire (black‑box) vor fi mai frecvente; însă transparența va fi factor de reputație.
+- Abordări hibride (deterministic + probabilistic) vor fi standardul de facto.
+
+## Checklist de Implementare
+
+- Mapare evenimente: inventariază evenimente esențiale și stabilește schema.
+- Pipeline: pune în producție ingestion API + ETL de normalizare.
+- Server‑side tagging: migrează evenimentele critice.
+- Modele: implementează un model de imputare și un proces de validare cu paneluri.
+- Conformitate: documentează fluxul de date și stabilește politica de retenție.
+
+## Concluzii
+
+Tracking‑ul modern nu înseamnă doar să recuperezi datele pierdute; înseamnă să proiectezi un sistem robust, transparent și adaptabil care cuantifică incertitudinea și se aliniază cu reglementările. În 2026, cei care vor câștiga sunt companiile care vor construi punți între datele tehnice și deciziile de business.
+
+Sursă și lecturi recomandate:
+- Documentații GDPR
+- Best practices pentru server‑side tagging (GTM Server, Tealium, Snowplow)
+
