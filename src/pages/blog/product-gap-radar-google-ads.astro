@@ -4,7 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 const title = "Product Gap Radar: noul tab din Google Ads care îți arată unde lipsesc produsele";
 const description = "Google a adăugat în Products un panou de eligibilitate pe campanie. Vezi cum îl folosești ca să nu mai pierzi produse din Shopping și Performance Max.";
 const publishDate = "2026-02-16";
-const heroImage = "/assets/product-eligibility-dashboard.png";
+const heroImage = "/assets/ppc-trends.png";
 ---
 
 <Layout title={title} description={description} type="article" publishDate={publishDate} image={heroImage}>
@@ -14,33 +14,57 @@ const heroImage = "/assets/product-eligibility-dashboard.png";
 			<h1 class="text-5xl font-black mt-4 mb-8 leading-tight text-white">{title}</h1>
 			<p class="text-xl mb-8">{description}</p>
 
-			<img src={heroImage} alt="Panou de eligibilitate Google Ads Products" class="rounded-3xl border border-white/10 mb-12 shadow-2xl" />
-
 			<section class="bg-white/5 border border-white/10 rounded-2xl p-6 mb-12">
 				<p class="text-xs uppercase tracking-[0.3em] text-cyan-300 font-bold mb-3">TL;DR</p>
 				<ul class="space-y-2 text-base text-slate-200">
-					<li>• Panoul „Eligible/Not eligible” te scapă de raportul exportat în Sheets pentru a detecta ce SKU lipsește dintr-o campanie.</li>
-					<li>• Poți prioritiza feed fix, policy sau bidding direct din Products, fără să sari între campanii Shopping vs. PMax.</li>
-					<li>• Folosește filtrele pentru a crea „playbook-uri” zilnice: ce produse trebuie împinse în PMax, ce trebuie scoase din overlapp.</li>
+					<li>• Panoul „Eligible vs Not eligible” îți afișează instant ce SKU rulează și unde apar blocaje, fără rapoarte CSV.</li>
+					<li>• Poți filtra după brand, categorie, marjă sau feed label pentru a prioritiza produsele cu impact în profit.</li>
+					<li>• Integrează descoperirile într-un playbook zilnic: remediezi feed, policy și bidding înainte să lovească performanța.</li>
 				</ul>
 			</section>
 
-			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Ce s-a schimbat concret</h2>
-			<p>În Products a apărut un tab cu două coloane: „Eligible” și „Not eligible”. Pentru fiecare produs vezi lista de campanii în care rulează sau este blocat, plus motivul (feed, policy, bidding, buget). Actualizarea a fost surprinsă prima dată de Hana Kobzová și confirmată de Search Engine Land pe 16 februarie 2026.</p>
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Ce aduce nou Product Eligibility</h2>
+			<p>Noul tab listează fiecare produs împreună cu campaniile în care este eligibil sau blocat. Pentru agențiile care gestionează mii de SKU-uri, faptul că vezi într-o singură coloană „Eligible campaigns” (ex: Shopping RO, PMax EU) și lângă „Not eligible” (ex: Shopping US – missing feed) scurtează enorm timpul de diagnostic. Google a combinat într-o singură vizualizare starea feed-ului, policy-urile și suprapunerile dintre campanii. Practic, Product Eligibility devine un radar live care îți arată dacă un produs a dispărut din campania prioritară sau dacă se bate cap în cap cu alte structuri.</p>
 
-			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">De ce ne pasă</h2>
-			<ul class="list-disc pl-6 space-y-4">
-				<li><strong>Detectezi rapid găurile de acoperire.</strong> Nu mai pierzi 24h până când realizezi că produsul best seller nu s-a mai livrat în niciun PMax.</li>
-				<li><strong>Previi suprapunerile Shopping + PMax.</strong> Vizibilitatea la nivel de SKU îți arată dacă două campanii licitează simultan, ceea ce mănâncă bugetul.</li>
-				<li><strong>Stabilești un playbook zilnic.</strong> Agenția poate seta o rutină de 15 minute unde scoate problemele critice și le loghează în Asana/ClickUp.</li>
+			<p>În trecut eram nevoiți să exportăm produse din Merchant Center, să facem VLOOKUP cu campaniile și să comparăm id-urile manual. Acum ai și un grafic cu trendul de eligibilitate, astfel încât să vezi dacă în ultima săptămână a crescut numărul de SKU-uri blocate de policy sau dacă feed-ul s-a sincronizat cu întârziere. Panoul oferă și quick filters pentru brand, label, channel și chiar pentru probleme specifice (price mismatch, availability, policy). Toate acestea se traduc în decizii mai rapide și într-un mod clar de comunicare cu clientul: nu mai vorbim „în gol” despre un „issue” abstract, ci indicăm concret câte SKU-uri sunt afectate și în ce campanii.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Procedură zilnică recomandată</h2>
+			<ol class="list-decimal pl-6 space-y-4">
+				<li><strong>Deschide Products &gt; Eligibility la început de zi.</strong> Aplică un filtru după brandurile prioritare, apoi sortează după „Not eligible” pentru a vedea blocajele critice. Loghează fiecare problemă într-un ticket.</li>
+				<li><strong>Mapează cauza.</strong> Pentru fiecare produs, verifică secțiunea „Issues” din panou: poate fi feed missing value, policy, overlapping campaign sau buget insuficient. Notează soluția (ex: actualizare inventar, ajustare feed label, mutare buget).</li>
+				<li><strong>Confirmă rezolvarea.</strong> După ce aplici fixul, revino în tab și marchează produsul ca „verificat” în checklistul intern. Când statutul trece automat în Eligible, marchează-l în raport și comunică clientului.</li>
+			</ol>
+
+			<p>Deși pare un proces manual, folosirea constantă a acestui tab reduce semnificativ momentele în care pierzi bani din cauza produselor „dispărute”. În plus, oferă transparență: poți atașa screenshoturi și date concrete în rapoartele săptămânale, arătând câte SKU-uri au fost readuse în campanii și ce impact a avut asupra veniturilor.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Impact asupra campaniilor Performance Max</h2>
+			<p>PMax suferă cel mai mult când unele SKU-uri nu mai sunt eligibile: detectezi târziu, iar automatizarea continuă să împingă buget în direcții greșite. Cu Product Eligibility, rezolvăm două probleme:</p>
+			<ul class="list-disc pl-6 space-y-3">
+				<li><strong>Consistency.</strong> Poți crea un view doar cu produsele din asset groups premium și verifici zilnic dacă sunt prezente în campanie.</li>
+				<li><strong>Overlap control.</strong> Dacă vezi același produs eligibil în PMax EU și în Shopping Generic, verifici dacă nu cumva se calcă licitațiile. Poți folosi etichete pentru a restricționa feed-ul și eviți canibalizarea.</li>
 			</ul>
 
-			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Checklist de implementare pentru ROA Marketing</h2>
-			<ol class="list-decimal pl-6 space-y-3">
-				<li>Activează coloana nouă în Products și salvează un view cu filtrele importante (brand, categorie, marjă).</li>
-				<li>Leagă-l de un sheet/CRM pentru a trimite zilnic statusul produselor cu prioritate A.</li>
-				<li>În rapoartele pentru clienți, adaugă secțiunea „Product Gap Radar” și arată exact câte SKU-uri au fost remediate.</li>
+			<p>Pentru clienții noștri, recomandăm să conectăm aceste informații la un sheet central, astfel încât account managerul să vadă la ce produse trebuie lucrat înainte să ajusteze strategiile de bidding sau bugetele. Acest sheet devine „Product Gap Radar” – un document cu două coloane (problemă și acțiune), actualizat în fiecare dimineață. Îl includem ca secțiune în rapoartele lunare, arătând câte SKU-uri au fost repuse pe picioare și ce venituri au generat ulterior.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Integrarea cu procesele ROA Marketing</h2>
+			<p>Pentru a alinia echipele interne, implementăm următorul flux:</p>
+			<ol class="list-decimal pl-6 space-y-4">
+				<li><strong>Account Manager</strong> rulează review-ul și listează problemele critice.</li>
+				<li><strong>Feed Specialist</strong> preia intrările ce țin de date (preț, stoc, descrieri) și confirmă când feed-ul s-a sincronizat.</li>
+				<li><strong>Paid Search Strategist</strong> investighează overlapp-urile între campanii și decide dacă mută SKU-ul în altă structură sau ajustează priority.</li>
+				<li><strong>Reporting</strong> centralizează într-un „Product Recovery Log” ce s-a rezolvat și atașează rezultatele (ROAS, revenue) din săptămânile următoare.</li>
 			</ol>
+
+			<p>Acest flux garantează că nimic nu se pierde între departamente și, cel mai important, transformă un tab nou din Google Ads într-un avantaj competitiv. Nu este doar „încă o interfață cool”, ci devine o parte din modul în care livrăm rezultate clienților.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Indicatori pe care îi urmărim</h2>
+			<ul class="list-disc pl-6 space-y-3">
+				<li><strong>% SKU eligibile în campaniile prioritare.</strong> Țintim peste 95% pentru categoriile cu marjă mare.</li>
+				<li><strong>Timp mediu de rezolvare.</strong> Ne propunem ca orice produs critic să fie readus în campanie în maximum 24h.</li>
+				<li><strong>Venit recuperat.</strong> Notăm veniturile generate de SKU-urile readuse, pentru a demonstra valoarea muncii.</li>
+			</ul>
+
+			<p>Aplicând constant acești pași, noul tab devine un radar real: nu doar identifică problemele, ci oferă context și acțiuni clare. Merită deschis în fiecare dimineață înainte de orice altă optimizare.</p>
 
 			<p class="text-sm text-slate-400 mt-10">Sursa: <a href="https://searchengineland.com/google-ads-simplifies-product-campaign-tracking-468852" class="text-cyan-300 underline-offset-2 hover:underline" target="_blank" rel="noopener">Search Engine Land, 16 feb 2026</a></p>
 		</article>

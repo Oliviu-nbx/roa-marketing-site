@@ -18,27 +18,51 @@ const heroImage = "/assets/ppc-trends.png";
 				<p class="text-xs uppercase tracking-[0.3em] text-cyan-300 font-bold mb-3">TL;DR</p>
 				<ul class="space-y-2 text-base text-slate-200">
 					<li>• Introduci ROAS-ul dorit pentru clienți noi, iar Google îți generează automat o valoare de conversie realistă.</li>
-					<li>• Evităm guesswork-ul ("100 lei" pentru toată lumea) și aliniem bidding-ul la LTV + marjă.</li>
-					<li>• Următorul pas va fi granularitatea pe campanie / produs, dar până atunci avem un baseline solid.</li>
+					<li>• Scapi de valorile arbitrare puse manual și aliniezi bidding-ul la LTV, marjă și obiectivele financiare.</li>
+					<li>• Deși setarea este la nivel de campanie/cont, poți combina cu segmente de audiență pentru granularitate suplimentară.</li>
 				</ul>
 			</section>
 
-			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Cum funcționează</h2>
-			<p>În setările de New Customer Acquisition adaugi un ROAS țintă. Platforma îți propune o valoare de conversie conform țintei, astfel încât bidding-ul să trateze corect lead-ul din perspectiva profitabilității. Nu e încă dinamic pe campanii, dar este un salt uriaș față de valorile statice introduse manual.</p>
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Problema pe care o rezolvă</h2>
+			<p>Campaniile de acquisition cer întotdeauna două răspunsuri: cât suntem dispuși să plătim pentru un client nou și cum semnalăm asta algoritmului. În lipsa unei formule clare, majoritatea advertiserilor introduceau o valoare statică (de exemplu 100 lei per client), indiferent de brand, marjă sau probabilitatea de repetare. Rezultatul? Algoritmul nu înțelegea ce țintim și ajungeam fie să subinvestim, fie să licităm exagerat pentru lead-uri care nu acoperă costurile.</p>
 
-			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">De ce este relevant pentru clienții ROA</h2>
-			<ul class="list-disc pl-6 space-y-4">
-				<li><strong>Scapi de discuția „cât valorează un client nou?”.</strong> Putem configura logic, nu intuitiv.</li>
-				<li><strong>Mai multă agresivitate acolo unde merită.</strong> Brandurile cu repeat puternic pot licita mai sus pentru first purchase fără să dea peste cap PnL-ul.</li>
-				<li><strong>Audit ușor.</strong> Când preluăm un cont, verificăm dacă valoarea sugerată e activă; dacă nu, avem un quick win.</li>
+			<p>Noua funcție rezolvă exact această fractură: îi spui lui Google care este ROAS-ul dorit pentru clienți noi (ex: 400%) și sistemul calculează conversia echivalentă. Astfel, toate semnalele de bidding se orientează corect – nu mai trebuie să convertim manual LTV-ul în valoare de conversie, pentru că platforma o face, ținând cont de modelul de atribuire și de performanța istorică.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Pași de configurare</h2>
+			<ol class="list-decimal pl-6 space-y-4">
+				<li>Deschide campania PMax sau Search care folosește obiectivul „New Customer Acquisition”.</li>
+				<li>Selectează opțiunea „Use ROAS target to calculate new customer value”. Introdu ROAS-ul pe care îl urmărești pentru clienți noi (de exemplu 5x).</li>
+				<li>Notează valoarea generată automat. Salveaz-o într-un document intern și verifică dacă se aliniază cu calculele tale de LTV și profit.</li>
+				<li>Activează raportul „Customer Acquisition” pentru a urmări numărul de clienți noi și costul efectiv.</li>
+			</ol>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Exemplu numeric</h2>
+			<p>Să zicem că vrei un ROAS de 400% pentru clienți noi. Introduci această țintă, iar Google îți propune o valoare de conversie de 800 lei per client. În practică asta înseamnă că, pentru fiecare nou client generat, algoritmul va încerca să obțină un cost de maximum 200 lei (800 lei valoare / 4). Dacă Observi că marja reală este de 300 lei, poți ajusta ținta la 600% pentru a menține profitul. Important este că discuția cu clientul devine concretă: toată lumea vede clar ce înseamnă „client nou profitabil”.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Integrarea cu procesele ROA</h2>
+			<p>În cadrul agenției folosim această setare împreună cu un model de LTV pe trei orizonturi (30, 90 și 180 zile). Astfel, pentru brandurile cu repeat puternic (subscription, beauty), putem seta ROAS mai agresiv pentru a câștiga cotă de piață, în timp ce pentru produsele cu achiziție rară menținem un prag conservator. De asemenea, păstrăm un sheet central unde documentăm:</p>
+			<ul class="list-disc pl-6 space-y-3">
+				<li>ROAS țintă introdus;</li>
+				<li>Valoarea sugerată de Google;</li>
+				<li>Cost per new customer realizat după 7 și 30 de zile;</li>
+				<li>Ajustările făcute (ex: schimbare țintă, excludere campanie) și impactul lor.</li>
 			</ul>
 
-			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Pași de implementare</h2>
-			<ol class="list-decimal pl-6 space-y-3">
-				<li>Activează New Customer Acquisition în campaniile PMax / Search și setează ROAS-ul țintă.</li>
-				<li>Notează valoarea propusă și compar-o cu modelul tău de LTV. Ajustează dacă există diferențe mari.</li>
-				<li>Monitorizează rapoartele „Customer Acquisition” pentru a vedea dacă volumul de clienți noi crește proporțional cu bugetul.</li>
-			</ol>
+			<p>Această urmă coerentă ne ajută să justificăm bugetele și să demonstrăm că bidding-ul nu este haotic, ci aliniat cu valoarea economică.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Limitări și forecast</h2>
+			<p>Funcția este momentan globală pentru campanie, ceea ce înseamnă că nu diferențiază pe produse sau feed-uri. Pentru clienții cu portofoliu mixt recomandăm să creăm campanii separate pe categorii de marjă, fiecare cu propriul ROAS. Ne așteptăm ca Google să extindă această funcționalitate la nivel de asset group sau chiar „auction-time adjustments”. Când se va întâmpla asta, vom putea spune: „pentru brandul premium valoarea este X, iar pentru entry-level Y”, iar sistemul va decide la licitație cât să ofere.</p>
+
+			<p>Până atunci, modul cel mai eficient este să combinăm această setare cu importul de audiențe (Customer Match) și cu semnale de marjă. De exemplu, putem aplica etichete în feed pentru a separa produsele cu marjă mare, apoi duplicăm campania și setezi acolo un ROAS mai agresiv.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Indicatorii pe care îi urmărim</h2>
+			<ul class="list-disc pl-6 space-y-3">
+				<li><strong>Cost per new customer vs. target.</strong> Trebuie să se apropie de valoarea teoretică (valoare generată / ROAS).</li>
+				<li><strong>Proporția clienților noi în campanie.</strong> Dacă scade sub 30%, revizuim semnalele și segmentarea.</li>
+				<li><strong>Revenue la 30 și 90 de zile.</strong> Confirmăm că LTV-ul real acoperă costul inițial.</li>
+			</ul>
+
+			<p>Când aceste trei repere sunt monitorizate, noua funcție devine mai mult decât un „quality of life improvement”. Este modul prin care transformăm discuția despre bugete dintr-una emoțională într-una bazată pe cifre. Clientul știe exact ce primește, iar noi avem o bază solidă pentru optimizări.</p>
 
 			<p class="text-sm text-slate-400 mt-10">Sursa: <a href="https://searchengineland.com/google-ads-adds-roas-based-tool-for-valuing-new-customers-469247" class="text-cyan-300 underline-offset-2 hover:underline" target="_blank" rel="noopener">Search Engine Land, 16 feb 2026</a></p>
 		</article>

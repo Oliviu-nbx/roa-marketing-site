@@ -17,25 +17,45 @@ const heroImage = "/assets/ppc-trends.png";
 			<section class="bg-white/5 border border-white/10 rounded-2xl p-6 mb-12">
 				<p class="text-xs uppercase tracking-[0.3em] text-cyan-300 font-bold mb-3">TL;DR</p>
 				<ul class="space-y-2 text-base text-slate-200">
-					<li>• Google îți propune teste concrete (ex: trecerea pe Maximize Conversion Value) gata configurate.</li>
-					<li>• Poți porni experimentul imediat sau îl modifici și salvezi ca template pentru alte conturi.</li>
-					<li>• Recomandările apar în același loc cu Experiments, deci echipele nu mai sar între sugestii din Recommendations tab și zona de testare.</li>
+					<li>• Google propune experimente gata configurate (ex: schimbare strategie de licitare, adaugă final URL expansion).</li>
+					<li>• Le poți lansa în două click-uri sau le folosești ca template pentru un plan de testare mai amplu.</li>
+					<li>• Recomandările apar alături de Experiments, deci echipa nu mai face ping-pong între Recommendations tab și zona de teste.</li>
 				</ul>
 			</section>
 
-			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Cum îl folosim la ROA</h2>
-			<ol class="list-decimal pl-6 space-y-3">
-				<li><strong>Creăm un backlog.</strong> În fiecare cont salvăm screenshot + parametrii experimentului propus și îl logăm în ClickUp.</li>
-				<li><strong>Stabilim un guardrail.</strong> Nu pornim test fără ipoteză și fără KPIs; recomandarea este doar un shortcut de setup.</li>
-				<li><strong>Reciclăm ce merge.</strong> Dacă un experiment oferit de Google aduce lift, îl convertim în playbook (ex: „URL expansion test trimestrial”).</li>
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Ce se schimbă în Experiments</h2>
+			<p>Până acum, Experiments era doar un laborator gol în care trebuia să construim manual teste. De la începutul lui februarie, Google a început să afișeze o secțiune „Recommended Experiments” ce conține idei bazate pe configurarea și performanța contului. Fiecare recomandare include un setup predefinit: campanii implicate, metrici urmărite și durata propusă. Poți apăsa „Apply” și experimentul se creează automat, fără să mai reconfigurezi manual.</p>
+
+			<p>Exemple văzute deja: comutarea campaniilor pe Maximize Conversion Value, activarea final URL expansion pentru a descoperi pagini cu performanță mai bună sau rularea unui test de assets noi în PMax. Practic, Google ia cele mai frecvente sugestii din tab-ul Recommendations și le transformă în experimente reale.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">De ce ne ajută</h2>
+			<ul class="list-disc pl-6 space-y-4">
+				<li><strong>Economisești timp.</strong> Nu mai recreezi manual un test de strategie de licitare.</li>
+				<li><strong>Consistency.</strong> Toate conturile primesc un flux de idei, ceea ce te obligă să menții ritmul de testare.</li>
+				<li><strong>Documentare ușoară.</strong> Pentru că experimentele sunt în același tab, rezultatele sunt salvate acolo și pot fi exportate.</li>
+			</ul>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Cum îl folosim în agenție</h2>
+			<ol class="list-decimal pl-6 space-y-4">
+				<li><strong>Backlog central.</strong> În fiecare luni, account managerii salvează screenshoturi cu recomandările și le introduc într-un backlog comun (ClickUp). Astfel vedem ce idei se repetă și prioritizăm.</li>
+				<li><strong>Hypothesis first.</strong> Deși experimentul vine preconfigurat, completăm o fișă scurtă cu ipoteză, metrici țintă și impact estimat. Nu rulăm teste doar pentru „că Google a zis”.</li>
+				<li><strong>Reciclăm configurările.</strong> Dacă un test funcționează, îl transformăm în SOP (de exemplu, „Rulăm final URL expansion la fiecare 90 de zile pentru conturile de e-commerce”).</li>
 			</ol>
 
-			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Riscuri de evitat</h2>
-			<ul class="list-disc pl-6 space-y-4">
-				<li><strong>Overtesting.</strong> Nu rula simultan prea multe sugestii – vei dilua bugetul.</li>
-				<li><strong>Recomandări nepotrivite.</strong> Un cont cu obiectiv lead-gen poate primi test de final URL expansion, dar dacă nu ai landinguri potrivite vei strica rezultatul.</li>
-				<li><strong>Documentează.</strong> Chiar dacă setup-ul e preconfigurat, scrie motivul și rezultatul, altfel nu poți învăța din ele.</li>
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Limitări și bune practici</h2>
+			<ul class="list-disc pl-6 space-y-3">
+				<li><strong>Nu lansa tot.</strong> Unele sugestii pot să nu aibă sens pentru obiectivul clientului. Filtrează.</li>
+				<li><strong>Asigură-te că ai trafic suficient.</strong> Google nu verifică dacă bugetul este destul pentru semnificație statistică, deci responsabilitatea rămâne la noi.</li>
+				<li><strong>Marchează rezultatele.</strong> După ce experimentul se încheie, exportă rezultatele și notează în raportul lunar ce decizie s-a luat.</li>
 			</ul>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Ce urmărim în rapoarte</h2>
+			<p>În dashboards am adăugat o secțiune „Test Velocity” unde notăm câte experimente rulează simultan, câte sunt propuse de Google și câte vin de la noi. Astfel, clientul vede că există un ritm clar de optimizare. Pentru fiecare experiment provenit din recomandări, trecem și verdictul: adoptat, respins, amânat. În timp, această listă devine o bibliotecă de învățăminte.</p>
+
+			<p>Un alt indicator util este „Time to Launch” – cât durează între apariția unei recomandări și momentul în care experimentul începe. Țintim sub 5 zile pentru conturile active, ca să profităm rapid de noutăți.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Ce urmează</h2>
+			<p>Ne așteptăm ca Google să extindă sistemul cu un marketplace de experimente propuse de comunitate sau chiar cu auto-launch pentru testele cu „high confidence”. Până atunci, Recommended Experiments este un reminder permanent că optimizarea nu e un eveniment, ci un proces continuu. Dacă îl folosim disciplinat, putem demonstra foarte clar evoluțiile incremental – și asta ajută enorm când discutăm despre bugete.</p>
 
 			<p class="text-sm text-slate-400 mt-10">Sursa: <a href="https://searchengineland.com/google-ads-shows-recommended-experiments-468887" class="text-cyan-300 underline-offset-2 hover:underline" target="_blank" rel="noopener">Search Engine Land, 15 feb 2026</a></p>
 		</article>
