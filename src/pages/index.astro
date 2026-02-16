@@ -79,7 +79,18 @@ const categories = ['Toate', ...new Set(posts.map(post => post.tag))];
 		</section>
 
 		<section class="sticky top-24 z-10 bg-slate-950/80 backdrop-blur-xl border border-white/10 rounded-3xl p-6 mb-10 shadow-2xl">
-			<div class="flex flex-wrap items-center gap-3 mb-4">
+			<div class="mb-4 md:hidden">
+				<label for="categorySelect" class="text-xs uppercase tracking-[0.3em] text-slate-400 font-bold mb-2 block">Filtrează după categorie</label>
+				<div class="relative">
+					<select id="categorySelect" class="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 text-sm text-white focus:border-cyan-400 focus:outline-none appearance-none">
+						{categories.map(category => (
+							<option value={category}>{category}</option>
+						))}
+					</select>
+					<span class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-xs">▼</span>
+				</div>
+			</div>
+			<div class="hidden md:flex md:flex-wrap items-center gap-3 mb-4">
 				{categories.map(category => (
 					<button
 						type="button"
@@ -128,9 +139,22 @@ const categories = ['Toate', ...new Set(posts.map(post => post.tag))];
 		const cards = document.querySelectorAll('[data-post-card]');
 		const searchInput = document.querySelector('#postSearch');
 		const emptyState = document.querySelector('#emptyState');
+		const categorySelect = document.querySelector('#categorySelect');
 		let activeCategory = 'Toate';
 
 		const normalize = (value) => value.toLowerCase().trim();
+
+		const setActiveCategory = (category) => {
+			activeCategory = category;
+			buttons.forEach(btn => {
+				btn.classList.toggle('bg-cyan-500/20', btn.dataset.category === category);
+				btn.classList.toggle('text-white', btn.dataset.category === category);
+			});
+			if (categorySelect && categorySelect.value !== category) {
+				categorySelect.value = category;
+			}
+			filterCards();
+		};
 
 		const filterCards = () => {
 			const query = normalize(searchInput.value || '');
@@ -157,12 +181,16 @@ const categories = ['Toate', ...new Set(posts.map(post => post.tag))];
 			}
 
 			button.addEventListener('click', () => {
-				activeCategory = button.dataset.category;
-				buttons.forEach(btn => btn.classList.remove('bg-cyan-500/20', 'text-white'));
-				button.classList.add('bg-cyan-500/20', 'text-white');
-				filterCards();
+				setActiveCategory(button.dataset.category);
 			});
 		});
+
+		if (categorySelect) {
+			categorySelect.value = activeCategory;
+			categorySelect.addEventListener('change', (event) => {
+				setActiveCategory(event.target.value);
+			});
+		}
 
 		searchInput.addEventListener('input', filterCards);
 		filterCards();
