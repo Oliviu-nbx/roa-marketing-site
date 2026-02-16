@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+Astro.response.status = 410;
+const title = "Pagina indisponibilă";
+const description = "Pagina 'Despre' a fost retrasă.";
+---
+
+<Layout title={title} description={description}>
+  <section class="container mx-auto px-6 py-24 max-w-3xl text-center">
+    <p class="text-sm uppercase tracking-[0.4em] text-cyan-300 font-bold mb-4">410 Gone</p>
+    <h1 class="text-4xl font-black mb-6">Această pagină a fost dezactivată.</h1>
+    <p class="text-slate-400 mb-8">Conținutul vechi "Despre" nu mai este disponibil. Revino la pagina principală pentru ultimele articole și analize.</p>
+    <a href="/" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-cyan-500 text-slate-950 font-semibold">Înapoi acasă</a>
+  </section>
+</Layout>
