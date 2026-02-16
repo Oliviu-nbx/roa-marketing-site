@@ -3,15 +3,26 @@ import Layout from '../../layouts/Layout.astro';
 
 const title = "Revoluția PPC în 2026: Reclame în ChatGPT, noile instrumente ROAS de la Google și Era Intent-ului";
 const description = "Află cum schimbă 2026 regulile publicității plătite: reclame în ChatGPT, instrumentele Google bazate pe ROAS pentru clienți noi.";
+const publishDate = "2026-02-15";
+const heroImage = "/assets/ppc-trends.png";
 ---
 
-<Layout title={title}>
+<Layout title={title} description={description} type="article" publishDate={publishDate} image={heroImage}>
 	<main class="container mx-auto px-6 py-20 max-w-4xl">
 		<article class="prose prose-invert lg:prose-xl text-slate-300">
 			<span class="text-cyan-400 font-bold uppercase tracking-widest text-sm italic">Inovație & AI 2026</span>
 			<h1 class="text-5xl font-black mt-4 mb-8 leading-tight text-white">{title}</h1>
 			
-			<p class="text-xl mb-12">{description}</p>
+			<p class="text-xl mb-8">{description}</p>
+
+            <section class="bg-white/5 border border-white/10 rounded-2xl p-6 mb-12">
+                <p class="text-xs uppercase tracking-[0.3em] text-cyan-300 font-bold mb-3">TL;DR</p>
+                <ul class="space-y-2 text-base text-slate-200">
+                    <li>• ChatGPT Ads și Gemini Ads mută bugetele din SERP în conversații AI unde intent-ul e explicit.</li>
+                    <li>• Google lansează instrumente ROAS bazate pe valoarea clienților noi, completând insight-urile din <a href="/blog/ppc-performance-analysis-2024-2026" class="text-cyan-300 underline-offset-2 hover:underline">analiza costurilor 2024-2026</a>.</li>
+                    <li>• Strategiile bazate pe intent trebuie să lucreze mână în mână cu Agentic Commerce, explicat în <a href="/blog/agentic-commerce-google-2026" class="text-cyan-300 underline-offset-2 hover:underline">articolul despre Google 2026</a>.</li>
+                </ul>
+            </section>
 
 			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Reclamele în ChatGPT</h2>
 			<p>OpenAI a început testarea reclamelor integrate direct în fluxurile de chat. Aceasta este o schimbare radicală de la pagini web la conversații active.</p>

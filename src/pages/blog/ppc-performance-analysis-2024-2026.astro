@@ -3,17 +3,28 @@ import Layout from '../../layouts/Layout.astro';
 
 const title = "Evoluția Costurilor PPC (2024-2026): Analiză Comparativă și Tabel de Date";
 const description = "Analiză detaliată a costurilor CPC pe Google, Meta și TikTok cu predicții pentru 2026.";
+const publishDate = "2026-02-15";
+const heroImage = "/assets/ppc-trends.png";
 ---
 
-<Layout title={title}>
+<Layout title={title} description={description} type="article" publishDate={publishDate} image={heroImage}>
 	<main class="container mx-auto px-6 py-20 max-w-4xl">
 		<article class="prose prose-invert lg:prose-xl text-slate-300">
 			<span class="text-cyan-400 font-bold uppercase tracking-widest text-sm italic">Data & Analiză 2026</span>
 			<h1 class="text-5xl font-black mt-4 mb-8 leading-tight text-white">{title}</h1>
 			
-			<img src="/assets/ppc-trends.png" alt="PPC Trends 2026" class="rounded-3xl border border-white/10 mb-12 shadow-2xl" />
+			<img src="/assets/ppc-trends.png" alt="PPC Trends 2026" class="rounded-3xl border border-white/10 mb-8 shadow-2xl" />
 
-			<p class="text-xl mb-12">{description}</p>
+			<p class="text-xl mb-8">{description}</p>
+
+            <section class="bg-white/5 border border-white/10 rounded-2xl p-6 mb-12">
+                <p class="text-xs uppercase tracking-[0.3em] text-cyan-300 font-bold mb-3">TL;DR</p>
+                <ul class="space-y-2 text-base text-slate-200">
+                    <li>• CPC-ul pe Google va trece de 3.40€ în 2026; compensează prin tactici de intent descrise în <a href="/blog/ppc-revolution-2026" class="text-cyan-300 underline-offset-2 hover:underline">Revoluția PPC 2026</a>.</li>
+                    <li>• Meta și TikTok rămân mai ieftine, dar necesită feed-uri creative produse cu AI – vezi <a href="/blog/agentic-commerce-google-2026" class="text-cyan-300 underline-offset-2 hover:underline">Agentic Commerce</a>.</li>
+                    <li>• Datele CSV atașate îți permit să refaci modelul financiar / scenarii de buget.</li>
+                </ul>
+            </section>
 
 			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Analiză Cantitativă</h2>
 			
@@ -48,7 +59,7 @@ const description = "Analiză detaliată a costurilor CPC pe Google, Meta și Ti
 			<ul class="list-disc list-inside space-y-4">
 				<li><strong>Inflație ad-tech:</strong> Costul serverelor și al procesării AI se reflectă în prețurile de licitare.</li>
 				<li><strong>Competiție AI:</strong> Mai mulți advertiseri folosesc aceleași unelte de optimizare, ducând la licitări mai agresive.</li>
-				<li><strong>Date mai puține:</strong> Pierderea semnalelor third-party crește incertitudinea și, implicit, costul pe acțiune.</li>
+				<li><strong>Date mai puține:</strong> Pierderea semnalelor third-party crește incertitudinea și, implicit, costul pe acțiune. Soluțiile de server-side tracking din <a href="/blog/adtech-2026-tracking" class="text-cyan-300 underline-offset-2 hover:underline">AdTech 2026</a> devin esențiale.</li>
 			</ul>
 		</article>
 	</main>

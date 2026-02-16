@@ -3,15 +3,26 @@ import Layout from '../../layouts/Layout.astro';
 
 const title = "Google 2026: Era Comerțului Agentic și Sfârșitul Căutării Tradiționale";
 const description = "Google anunță tranziția către Agentic Commerce în 2026. Află cum Universal Commerce Protocol (UCP) și AI-ul schimbă regulile PPC.";
+const publishDate = "2026-02-16";
+const heroImage = "/assets/ppc-trends.png";
 ---
 
-<Layout title={title}>
+<Layout title={title} description={description} type="article" publishDate={publishDate} image={heroImage}>
 	<main class="container mx-auto px-6 py-20 max-w-4xl">
 		<article class="prose prose-invert lg:prose-xl text-slate-300">
 			<span class="text-cyan-400 font-bold uppercase tracking-widest text-sm italic">Google Ads & AI 2026</span>
 			<h1 class="text-5xl font-black mt-4 mb-8 leading-tight text-white">{title}</h1>
 			
-			<p class="text-xl mb-12">{description}</p>
+			<p class="text-xl mb-8">{description}</p>
+
+            <section class="bg-white/5 border border-white/10 rounded-2xl p-6 mb-12">
+                <p class="text-xs uppercase tracking-[0.3em] text-cyan-300 font-bold mb-3">TL;DR</p>
+                <ul class="space-y-2 text-base text-slate-200">
+                    <li>• Google mută Search în zona "agentic", unde AI-ul finalizează achiziția fără să mai trimită utilizatorul pe 10 landing page-uri.</li>
+                    <li>• Universal Commerce Protocol devine noul standard tehnic pentru magazine – fără el, produsele tale nu apar în fluxurile AI Mode.</li>
+                    <li>• Creatorii YouTube și asset-urile generate cu Gemini/Veo devin obligatorii pentru brand visibility.</li>
+                </ul>
+            </section>
 
 			<p>Dacă până acum ne-am concentrat pe optimizarea pentru motoare de căutare, 2026 marchează începutul unei noi ere: optimizarea pentru <strong>Agenți AI</strong>. În scrisoarea sa anuală, Vidhya Srinivasan (VP Google Ads) a confirmat direcția clară a gigantului tech: viitorul nu mai este despre a oferi link-uri, ci despre a finaliza tranzacții.</p>
 
@@ -19,7 +30,7 @@ const description = "Google anunță tranziția către Agentic Commerce în 2026
 
 			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">1. De la "Search" la "Service": Ascensiunea Comerțului Agentic</h2>
 			<p>Marea schimbare a anului 2026 este trecerea de la interfețe pasive la asistenți activi. AI-ul nu mai este doar un instrument de informare; devine un "concierge" digital capabil să execute sarcini complexe.</p>
-            <p>Google introduce conceptul de <strong>Agentic Commerce</strong>, unde AI-ul preia greutatea deciziei și a execuției. Utilizatorii nu vor mai naviga prin zeci de tab-uri pentru a compara prețuri. În schimb, vor cere asistentului lor (în AI Mode) să "găsească o pereche de pantofi de alergare sub 500 RON, potriviți pentru maraton, și să îi cumpere".</p>
+            <p>Google introduce conceptul de <strong>Agentic Commerce</strong>, unde AI-ul preia greutatea deciziei și a execuției. Utilizatorii nu vor mai naviga prin zeci de tab-uri pentru a compara prețuri. În schimb, vor cere asistentului lor (în AI Mode) să "găsească o pereche de pantofi de alergare sub 500 RON, potriviți pentru maraton, și să îi cumpere". Pentru context despre cum ajung reclamele conversaționale în ChatGPT și Gemini, vezi <a href="/blog/ppc-revolution-2026" class="text-cyan-300 underline-offset-2 hover:underline">Revoluția PPC în 2026</a>.</p>
             <p><strong>Implicația PPC:</strong> Anunțurile tale nu mai concurează doar pentru atenția vizuală a omului, ci pentru "încrederea" algoritmului care face recomandarea finală.</p>
 
 			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">2. Universal Commerce Protocol (UCP): Infrastructura Invizibilă</h2>
@@ -45,7 +56,7 @@ const description = "Google anunță tranziția către Agentic Commerce în 2026
 			<p>Pentru clienții noștri, această schimbare de paradigmă necesită trei acțiuni imediate:</p>
             <ol class="list-decimal pl-6 space-y-2">
                 <li><strong>Adopția UCP:</strong> Trebuie să verificăm platformele de e-commerce ale clienților pentru compatibilitatea cu noile standarde Google. Cine rămâne în afara fluxului "agentic" pierde vânzările impulsive/rapide.</li>
-                <li><strong>Conversational SEO/PPC:</strong> Cuvintele cheie "short-tail" mor. Trebuie să optimizăm feed-urile de produse și conținutul pentru interogări conversaționale, complexe ("găsește-mi ceva compatibil cu...").</li>
+                <li><strong>Conversational SEO/PPC:</strong> Cuvintele cheie "short-tail" mor. Trebuie să optimizăm feed-urile de produse și conținutul pentru interogări conversaționale, complexe ("găsește-mi ceva compatibil cu..."). Vezi și analiza noastră despre <a href="/blog/ppc-performance-analysis-2024-2026" class="text-cyan-300 underline-offset-2 hover:underline">Evoluția costurilor PPC 2024-2026</a> pentru a prioritiza canalele profitabile.</li>
                 <li><strong>Video-First:</strong> Cu noile unelte generative, nu mai există scuza "nu avem buget de video". Fiecare produs din portofoliu trebuie să aibă o reprezentare video pentru a fi eligibil în noile formate de anunțuri YouTube și Search.</li>
             </ol>
 
