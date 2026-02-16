@@ -119,6 +119,26 @@ const schema = type === 'article' ? {
             radial-gradient(circle at 75% 0%, rgba(34,211,238,0.05), transparent 40%),
             url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nNScgaGVpZ2h0PSc1JyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnPjxmaWx0ZXIgaWQ9J25vaXNlJyB4PScwJyB5PScwJyB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJz48ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgYmFzZUZyZXF1ZW5jeT0nMC4yJyBzdGl0Y2hUaWxlcz0nc3RpdGNoJyAvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSc1JyBoZWlnaHQ9JzUnIGZpbGw9J2JsYWNrJyBmaWx0ZXI9InVybCgjbm9pc2UpIiBvcGFjaXR5PScwLjAzJy8+PC9zdmc+");
         background-attachment: fixed;
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        background: radial-gradient(circle at 20% 20%, rgba(34,211,238,0.15), transparent 50%),
+                    radial-gradient(circle at 80% 30%, rgba(14,165,233,0.12), transparent 45%),
+                    radial-gradient(circle at 50% 80%, rgba(56,189,248,0.1), transparent 40%);
+        animation: aurora 25s ease-in-out infinite alternate;
+        pointer-events: none;
+    }
+
+    @keyframes aurora {
+        0% { transform: translate3d(0px, 0px, 0) scale(1); opacity: 0.8; }
+        50% { transform: translate3d(-40px, 20px, 0) scale(1.05); opacity: 0.6; }
+        100% { transform: translate3d(30px, -30px, 0) scale(1.08); opacity: 0.9; }
     }
     /* Typography improvements */
     h1, h2, h3, h4, h5, h6 {
