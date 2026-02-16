@@ -72,7 +72,7 @@ const schema = type === 'article' ? {
         <!-- Schema.org -->
         <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 	</head>
-	<body class="bg-slate-950 text-white selection:bg-cyan-500 font-sans antialiased">
+	<body class="bg-slate-900 text-white selection:bg-cyan-500 font-sans antialiased">
 		<header class="fixed w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
 			<div class="container mx-auto px-6 h-20 flex items-center justify-between">
 				<a href="/" class="text-2xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">
@@ -112,6 +112,14 @@ const schema = type === 'article' ? {
 		font-family: system-ui, sans-serif;
 		scroll-behavior: smooth;
 	}
+    body {
+        background-color: #0f172a;
+        background-image:
+            radial-gradient(circle at 25% 25%, rgba(14,165,233,0.08), transparent 45%),
+            radial-gradient(circle at 75% 0%, rgba(34,211,238,0.05), transparent 40%),
+            url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nNScgaGVpZ2h0PSc1JyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnPjxmaWx0ZXIgaWQ9J25vaXNlJyB4PScwJyB5PScwJyB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJz48ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgYmFzZUZyZXF1ZW5jeT0nMC4yJyBzdGl0Y2hUaWxlcz0nc3RpdGNoJyAvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSc1JyBoZWlnaHQ9JzUnIGZpbGw9J2JsYWNrJyBmaWx0ZXI9InVybCgjbm9pc2UpIiBvcGFjaXR5PScwLjAzJy8+PC9zdmc+");
+        background-attachment: fixed;
+    }
     /* Typography improvements */
     h1, h2, h3, h4, h5, h6 {
         letter-spacing: -0.025em;
