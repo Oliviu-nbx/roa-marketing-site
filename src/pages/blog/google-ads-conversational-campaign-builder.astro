@@ -1,0 +1,79 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "Conversational Campaign Builder: cum transformă Google setup-ul Search";
+const description = "Google lansează global builder-ul conversațional pentru Search. Îți arătăm cum îl folosim ca să reducem timpul de setup cu 60%.";
+const publishDate = "2026-02-16";
+const heroImage = "/assets/ppc-trends.png";
+---
+
+<Layout title={title} description={description} type="article" publishDate={publishDate} image={heroImage}>
+	<main class="container mx-auto px-6 py-20 max-w-4xl">
+		<article class="prose prose-invert lg:prose-xl text-slate-300">
+			<span class="text-cyan-400 font-bold uppercase tracking-widest text-sm italic">Google Ads · Conversational AI</span>
+			<h1 class="text-5xl font-black mt-4 mb-8 leading-tight text-white">{title}</h1>
+			<p class="text-xl mb-8">{description}</p>
+
+			<section class="bg-white/5 border border-white/10 rounded-2xl p-6 mb-12">
+				<p class="text-xs uppercase tracking-[0.3em] text-cyan-300 font-bold mb-3">TL;DR</p>
+				<ul class="space-y-2 text-base text-slate-200">
+					<li>• Conversational Campaign Builder (CCB) este disponibil acum în toate conturile EEA; importă automat paginile tale, generează keyword-uri și scrie anunțuri.</li>
+					<li>• Nu e un „auto campaign”: trebuie să îi dai intențiile corecte, negativele critice și limite de buget.</li>
+					<li>• La ROA îl folosim ca pe un asistent: îl lăsăm să propună structura și apoi o rafinăm manual folosind playbook-ul nostru.</li>
+				</ul>
+			</section>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Cum funcționează builder-ul</h2>
+			<p>CCB pornește cu un prompt în stil ChatGPT: „Spune-mi ce vinzi și ce vrei să obții”. Introducem USPs, marginea de preț, audiențele prioritare și landing page-ul. Sistemul scanează site-ul și propune structura campaniei: ad groups, keyword-uri, headline-uri, descrieri și assets. Poți cere variante suplimentare („Generalizează”, „Fă-l mai agresiv”), poți importa feed-uri și, dacă ai configurat AI Mode guardrails, se aplică automat.</p>
+
+			<p>Important: CCB nu activează campania fără confirmarea ta. Îți arată un rezumat cu tot ce a generat și poți edita orice. Noi ne-am creat un checklist de verificare: match types, negative keywords, brand safety, extensii.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Workflow-ul ROA</h2>
+			<ol class="list-decimal pl-6 space-y-4">
+				<li><strong>Brief conversațional.</strong> Introducem promptul standardizat (problemă client, promisiune, diferențiatori) și indicăm obiectivul (lead, sales).</li>
+				<li><strong>Revizuire keyword.</strong> Exportăm lista sugerată, o trecem prin scriptul nostru de scoring și facem prune înainte de import.</li>
+				<li><strong>Ad assets.</strong> Păstrăm 50% din headline-uri, restul le rescriem ca să menținem tonul brandului. Folosim AI doar ca sursă de inspirație.</li>
+				<li><strong>Quality check.</strong> Verificăm setările tehnice: location targeting, buget, strategia de licitare. CCB propune Maximize Conversions by default; dacă avem date, trecem pe tROAS/tCPA.</li>
+				<li><strong>Launch + log.</strong> După publicare, logăm ce a generat AI și ce am modificat. Astfel învățăm în timp ce promturi duc la rezultate mai bune.</li>
+			</ol>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Caz practic</h2>
+			<p>Un retailer de mobilier din Cluj își dorea 20 de ad groups noi pentru colecția de primăvară. În loc să pornim de la zero, am introdus brief-ul din playbook. CCB a generat 32 de keyword themes, 40 de headline-uri și 8 descrieri. După curățare: 18 ad groups lansate în mai puțin de o oră. Am comparat cu procesul tradițional (4 ore). CTR-ul inițial a fost cu 11% mai mare datorită combinațiilor de keywords long-tail pe care AI-ul le-a preluat din site.</p>
+
+			<p>După 3 zile am înlocuit headline-urile care nu performau și am completat cu asset-uri video. Lesson learned: builder-ul tinde să repete formule generice („Descoperă”, „Economisește acum”), deci e vital să vii cu input diferențiator.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Limite și best practices</h2>
+			<ul class="list-disc pl-6 space-y-4">
+				<li><strong>Negative keywords.</strong> CCB adaugă doar negative „obvious”. Adaugă manual lista brandurilor concurente și expresiile irelevante.</li>
+				<li><strong>Match types.</strong> Builder-ul recomandă în principal broad match. Noi duplicăm ad groups cheie pe exact și phrase pentru control.</li>
+				<li><strong>Language.</strong> Pentru RO, mixează diacritice și fără. Normalizează textul după generare.</li>
+				<li><strong>Raportare.</strong> Salvează transcriptul conversației; poate fi cerut de clienți sau de compliance.</li>
+			</ul>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Checklist rapid</h2>
+			<ol class="list-decimal pl-6 space-y-3">
+				<li>Pregătește prompt-ul cu informații comerciale clare.</li>
+				<li>Revizuiește keyword-urile și aplică scorul intern.</li>
+				<li>Rescrie headline-urile critice pentru diferențiere.</li>
+				<li>Activează campania doar după QA complet.</li>
+				<li>Documentează ce a funcționat și actualizează prompt-ul pentru următoarea iterație.</li>
+			</ol>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Integrarea cu restul ecosistemului</h2>
+			<p>CCB lucrează cel mai bine când este conectat cu instrumentele tale existente. Noi sincronizăm output-ul cu Sheets prin Google Ads API și îl comparăm cu biblioteca de keywords aprobată de client. În felul acesta știm dacă AI-ul a introdus termeni noi care trebuie avizați. Pentru asset-uri, conversăm builder-ul cu Canva/Adobe Express folosind un checklist: dacă AI propune un unghi nou, îl trimitem către echipa creativă cu tot contextul conversației.</p>
+
+			<p>Mai mult, am conectat transcriptul CCB la Slack. De fiecare dată când AI generează o campanie nouă, transcriptul ajunge automat în canalul „#search-launch” împreună cu un rezumat al deciziilor. Echipa juridică poate verifica rapid dacă sunt respectate disclaimerele.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Întrebări frecvente</h2>
+			<ul class="list-disc pl-6 space-y-4">
+				<li><strong>„Ce fac dacă AI sugerează bugete prea mari?”</strong> Poți seta limite înainte de lansare. Noi folosim un script care rescrie automat bugetul zilnic conform forecast-ului.</li>
+				<li><strong>„CCB poate crea campanii pentru alte limbi?”</strong> Da, dar recomandăm revizuire nativă. Pentru clienții bilingvi, generăm versiunile în paralel și le trimitem către traducători.</li>
+				<li><strong>„Cum gestionez brandurile sensibile?”</strong> Utilizează guardrails din AI Mode și adaugă note explicite despre ce termeni sunt interziși.</li>
+			</ul>
+
+			<p>Conversational Campaign Builder nu înlocuiește strategul. În schimb, îi eliberează timp pentru analiză și experimentare. Cu guardrails corecte și un proces de revizuire, putem lansa campanii Search în ore, nu zile, fără să sacrificăm calitatea.</p>
+
+			<p class="text-sm text-slate-400 mt-10">Sursa: <a href="https://searchengineland.com/google-ads-conversational-campaign-builder-expands-469205" class="text-cyan-300 underline-offset-2 hover:underline" target="_blank" rel="noopener">Search Engine Land, 15 feb 2026</a></p>
+		</article>
+	</main>
+</Layout>

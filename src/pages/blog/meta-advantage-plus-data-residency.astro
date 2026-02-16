@@ -1,0 +1,84 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "Advantage+ Data Residency și Creative Clusters: ce înseamnă pentru brandurile din UE";
+const description = "Meta extinde controlul asupra locației datelor și introduce Creative Clusters pentru Advantage+. Iată cum pregătim conturile românești.";
+const publishDate = "2026-02-16";
+const heroImage = "/assets/ppc-trends.png";
+---
+
+<Layout title={title} description={description} type="article" publishDate={publishDate} image={heroImage}>
+	<main class="container mx-auto px-6 py-20 max-w-4xl">
+		<article class="prose prose-invert lg:prose-xl text-slate-300">
+			<span class="text-cyan-400 font-bold uppercase tracking-widest text-sm italic">Meta Ads · Advantage+</span>
+			<h1 class="text-5xl font-black mt-4 mb-8 leading-tight text-white">{title}</h1>
+			<p class="text-xl mb-8">{description}</p>
+
+			<section class="bg-white/5 border border-white/10 rounded-2xl p-6 mb-12">
+				<p class="text-xs uppercase tracking-[0.3em] text-cyan-300 font-bold mb-3">TL;DR</p>
+				<ul class="space-y-2 text-base text-slate-200">
+					<li>• Companiile pot forța ca datele Advantage+ Shopping și App să rămână în UE (începând cu Germania, Franța, România și Polonia).</li>
+					<li>• Creative Clusters permite seturi multiple de asset-uri AI care se activează în funcție de audiență și semnal contextual.</li>
+					<li>• Pentru clienții ROA configurăm un playbook: inventariem data flows, setăm rezidența și definim scenarii de cluster (launch, promo, evergreen).</li>
+				</ul>
+			</section>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">De ce contează Data Residency</h2>
+			<p>Regulamentele DSA și GDPR obligă platformele să ofere transparență asupra locului în care sunt procesate datele. Meta a răspuns introducând „Advantage+ Data Residency”: o opțiune prin care advertiserul poate specifica dacă vrea ca datele (event-uri, rapoarte, semnale AI) să rămână în centrele din UE sau poate accepta procesarea globală. Pentru companiile care operează în industrii reglementate (financiar, medical), această setare devine esențială. Dacă nu o configurezi, Facebook poate folosi centrele din SUA, iar departamentul legal te poate bloca.</p>
+
+			<p>Practic, în Ads Manager vei vedea un toggle nou la nivel de Business Settings → Data Permissions. Odată activat, toate campaniile Advantage+ folosesc doar centrele din Irlanda, Danemarca și Germania. Performanța nu are de suferit, dar trebuie să aștepți până la 72 de ore pentru propagare. Noi facem această schimbare într-un window cu trafic mai mic (ex: noaptea de duminică spre luni) și comunicăm din timp stakeholderilor.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Creative Clusters explicat</h2>
+			<p>Al doilea anunț major: Meta introduce „Creative Clusters” în Advantage+ Shopping și App. Poți încărca mai multe seturi de asset-uri (video, imagine, copy) și alegi contextul pentru fiecare. AI-ul va decide în timp real când să servească clusterul „Launch”, „Promo” sau „Evergreen”. Avantajul e că nu mai ai nevoie de campanii separate pentru fiecare moment, iar algoritmul înțelege modul în care reacționează audiențele la mesaje distincte.</p>
+
+			<p>Noi definim clusterul astfel:</p>
+			<ul class="list-disc pl-6 space-y-3">
+				<li><strong>Launch.</strong> Asset-uri orientate pe awareness, cu hook educațional.</li>
+				<li><strong>Promo.</strong> Creativ axat pe urgență (countdown, coduri).</li>
+				<li><strong>Evergreen.</strong> Dovezi sociale, testimoniale și comparații.</li>
+			</ul>
+
+			<p>Fiecare cluster are propriul set de headline-uri și descrieri. Meta oferă rapoarte pe cluster, deci știm când merită să tăiem un scenariu sau să-l extindem.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Planul de implementare</h2>
+			<ol class="list-decimal pl-6 space-y-4">
+				<li><strong>Audit de date.</strong> Mapăm ce evenimente trimitem (Conversions API, pixel) și verificăm dacă vreun server se află în afara UE. Dacă da, îl mutăm sau îl proxăm.</li>
+				<li><strong>Activăm Data Residency.</strong> Intrăm în Business Manager, alegem „European Economic Area” și confirmăm pentru toate conturile.</li>
+				<li><strong>Construim cluster-ele.</strong> Inventory complet al asset-urilor video și statice. Alocăm label-uri și scriem instructions pentru AI.</li>
+				<li><strong>Testăm.</strong> Rulăm 14 zile cu A/B: Advantage+ standard vs Advantage+ cu Clusters să vedem diferența pe ROAS.</li>
+				<li><strong>Documentăm.</strong> În rapoarte adăugăm grafice cu split pe cluster și menționăm impactul rezidenței datelor asupra ratei de conversie.</li>
+			</ol>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Beneficii și riscuri</h2>
+			<ul class="list-disc pl-6 space-y-4">
+				<li><strong>Compliance.</strong> Ai dovada că datele rămân în UE, ceea ce simplifică auditul GDPR.</li>
+				<li><strong>Viteză creativă.</strong> Clusterele AI generează combinații noi fără să mai multiplici campaniile.</li>
+				<li><strong>Complexitate.</strong> Necesită asset-uri bine structurate, altfel AI combină lucruri nepotrivite.</li>
+				<li><strong>Dependență de AI.</strong> Dacă nu setezi clar contextul, modelul poate livra „Promo” prea devreme. De aceea includem semnale bazate pe stoc și calendar.</li>
+			</ul>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Checklist</h2>
+			<ol class="list-decimal pl-6 space-y-3">
+				<li>Confirmați cu legal/IT că trebuie activată rezidența datelor.</li>
+				<li>Actualizați firewall-urile și proxy-urile pentru noile end-point-uri Meta.</li>
+				<li>Pregătiți minim 3 clustere creative cu asset-uri video + statice.</li>
+				<li>Configurați naming standard: `[Cluster]-[Audience]-[Goal]`.</li>
+				<li>Monitorizați rapoartele și documentați schimbările în dashboards.</li>
+			</ol>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Caz practic</h2>
+			<p>Un retailer de fashion din București trebuia să demonstreze că datele din campaniile Advantage+ nu părăsesc UE. După audit, am constatat că serverul lor Conversions API era găzduit în Marea Britanie. Am mutat instanța pe Frankfurt, am activat Data Residency și am sincronizat setările în Business Manager. Rezultatul: departamentul legal a ridicat freeze-ul de campanii în 48h. În același timp, am introdus clustere creative (Launch, Promo, Loyalty). După 3 săptămâni, clusterul Promo a generat cu 18% mai multe conversii cu același buget, pentru că AI-ul a înțeles exact când să schimbe mesajul.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Întrebări frecvente</h2>
+			<ul class="list-disc pl-6 space-y-4">
+				<li><strong>Activarea Data Residency scade performanța?</strong> Nu am observat diferențe semnificative. Singurul impact posibil este întârzirea update-urilor în rapoarte în primele 48h.</li>
+				<li><strong>Putem amesteca clusterele între țări?</strong> Da, dar recomandăm să păstrezi asset-urile pentru fiecare piață. AI-ul decide în funcție de semnale locale.</li>
+				<li><strong>Clusterele înlocuiesc campaniile separate?</strong> Nu complet. Pentru promoții majore încă merită să creezi o campanie dedicată, dar clusterele te ajută să reduci fragmentarea.</li>
+			</ul>
+
+			<p>Prin acest setup, clienții din România pot demonstra ușor că respectă regulile UE și, în același timp, beneficiază de automatizări creative cu AI. Ne așteptăm ca Meta să facă Data Residency obligatorie pentru anumite verticale până la final de 2026, așa că e bine să fim pregătiți.</p>
+
+			<p class="text-sm text-slate-400 mt-10">Sursa: <a href="https://searchengineland.com/meta-advantage-plus-data-residency-creative-clusters-469188" class="text-cyan-300 underline-offset-2 hover:underline" target="_blank" rel="noopener">Search Engine Land, 15 feb 2026</a></p>
+		</article>
+	</main>
+</Layout>

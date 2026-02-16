@@ -1,0 +1,89 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "Creative Intelligence în Performance Max: workflow complet pentru testare AI";
+const description = "Google introduce Creative Intelligence dashboards pentru PMax. Îți arătăm cum măsurăm impactul și cum prioritizăm asset-urile.";
+const publishDate = "2026-02-16";
+const heroImage = "/assets/ppc-trends.png";
+---
+
+<Layout title={title} description={description} type="article" publishDate={publishDate} image={heroImage}>
+	<main class="container mx-auto px-6 py-20 max-w-4xl">
+		<article class="prose prose-invert lg:prose-xl text-slate-300">
+			<span class="text-cyan-400 font-bold uppercase tracking-widest text-sm italic">Performance Max · Creative Intelligence</span>
+			<h1 class="text-5xl font-black mt-4 mb-8 leading-tight text-white">{title}</h1>
+			<p class="text-xl mb-8">{description}</p>
+
+			<section class="bg-white/5 border border-white/10 rounded-2xl p-6 mb-12">
+				<p class="text-xs uppercase tracking-[0.3em] text-cyan-300 font-bold mb-3">TL;DR</p>
+				<ul class="space-y-2 text-base text-slate-200">
+					<li>• Noua secțiune „Creative Intelligence” arată contribuția fiecărui asset din Performance Max la conversii, ROAS și incremental lift.</li>
+					<li>• Putem filtra pe audiențe, canale (Video, Display, Search) și moment al funnel-ului.</li>
+					<li>• Am construit un proces săptămânal: analizăm scorurile AI, luăm decizii de producție și logăm ce asset-uri intră/ies.</li>
+				</ul>
+			</section>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Ce include Creative Intelligence</h2>
+			<p>Dashboard-ul oferă trei tab-uri principale: Contribution (cât de mult a influențat asset-ul conversia), Audience Insights (ce segmente l-au văzut) și Opportunities (recomandări AI pentru noi asset-uri). Google calculează contribuția folosind un model de atribuire intern și îl compară cu media asset-urilor similare din piață. Astfel poți vedea dacă video-ul tău performează peste sau sub benchmark.</p>
+
+			<p>În Opportunities primești sugestii concrete: „Creează un video vertical cu <10 secunde orientat pe beneficii financiare” sau „Folosește testimoniale text”. AI-ul se bazează pe feed, pe performanță și pe ce vede în conturi similare. Toate insight-urile pot fi exportate în Sheets via API.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Workflow-ul ROA în 4 pași</h2>
+			<ol class="list-decimal pl-6 space-y-4">
+				<li><strong>Inventariere.</strong> Lunar, facem un snapshot cu toate asset-urile active (video, imagine, text). Fiecare primește un ID și un scop (Awareness, Consideration, Promo).</li>
+				<li><strong>Analiză.</strong> În fiecare joi descărcăm raportul Creative Intelligence și marcăm asset-urile cu scor sub 40/100 sau cu share mic în conversii. Le comparăm cu notele creative (brief, hook, CTA).</li>
+				<li><strong>Decizie.</strong> Dacă un asset subperformează două săptămâni consecutiv, îl înlocuim. Dacă un asset peste 70/100 aduce >20% din conversii, îl mutăm în „Hero” și construim derivate.</li>
+				<li><strong>Implementare.</strong> Actualizăm asset groups, schimbăm sequencing-ul video și trimitem în producție versiunile recomandate de AI.</li>
+			</ol>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Indicatori de monitorizat</h2>
+			<ul class="list-disc pl-6 space-y-4">
+				<li><strong>Contribution Score.</strong> Scorul AI vs obiectivul intern (Țintim >60).</li>
+				<li><strong>Share of Spend per Asset.</strong> Dacă un asset primește mult buget dar are scor mic, îl pausing.</li>
+				<li><strong>Refresh Velocity.</strong> Câte asset-uri noi intră lunar. Țintim 4 video noi și 6 imagini.</li>
+				<li><strong>Incremental Lift.</strong> Folosim test A/B (holdout) pentru a vedea câte conversii suplimentare aduce un asset hero.</li>
+			</ul>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Best practices operative</h2>
+			<p>AI-ul nu înțelege invariabil nuanțele brandului, așa că documentăm totul în Asset Briefs. Fiecare video vine cu:</p>
+			<ul class="list-disc pl-6 space-y-3">
+				<li>Hook de 3 secunde;</li>
+				<li>Beneficiu principal;</li>
+				<li>Social proof;</li>
+				<li>CTA adaptat pentru trafic din România.</li>
+			</ul>
+
+			<p>În plus, folosim campanii de lifting: duplicăm asset group-ul și punem un singur asset nou. Google compară direct evoluția și putem să izolăm efectul creativului.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Checklist săptămânal</h2>
+			<ol class="list-decimal pl-6 space-y-3">
+				<li>Exportă Creative Intelligence Report.</li>
+				<li>Marchează asset-urile underperforming (scor &lt; 40) și supra-performerele (&gt; 70).</li>
+				<li>Decide ce intră în producție și ce se arhivează.</li>
+				<li>Actualizează dashboard-ul intern și comunică echipei de creație.</li>
+				<li>Rulează un test incremental dacă lansezi asset „hero”.</li>
+			</ol>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Flux de colaborare</h2>
+			<p>Am creat un cadru fix în care strategii, designerii și account managerii colaborează. Strategul extrage datele și scrie verdictul, designerul vede imediat ce trebuie refăcut, iar account managerul comunică schimbările clientului. Folosim template-uri Notion pentru fiecare asset: include thumbnail, cifrele cheie și decizia (scale/iterate/stop). Astfel, când avem nevoie să justificăm bugetul pentru producție, tot istoricul este la un click distanță.</p>
+
+			<p>În plus, conectăm raportul la Slack: atunci când un asset scade sub scorul 40, se creează automat un ticket în canalul #pmax-creatives cu detalii despre publicul și canalul unde a căzut performanța.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Întrebări frecvente</h2>
+			<ul class="list-disc pl-6 space-y-4">
+				<li><strong>„Modelul poate greși?”</strong> Da. Creative Intelligence se bazează pe estimări statistice. Verificăm manual insight-urile și nu luăm decizii doar pe un singur raport.</li>
+				<li><strong>„Ce fac cu asset-urile de brand?”</strong> Dacă sunt obligatorii, le păstrăm în group separat și le lăsăm să ruleze doar pentru Search Inventory.</li>
+				<li><strong>„Cum calculez ROI-ul producției?”</strong> Comparăm costul de creație cu lift-ul incremental. Dacă un video costă 1.000 € și aduce +10.000 € vânzări suplimentare, îl ținem ca studiu de caz.</li>
+			</ul>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Plan 30/60/90 de zile</h2>
+			<p><strong>0-30 zile:</strong> setăm baseline-ul. Nu facem schimbări majore, doar etichetăm asset-urile și calibrăm scoring-ul AI.</p>
+			<p><strong>30-60 zile:</strong> intră în joc rotațiile controlate. Înlocuim 20% din asset-uri cu idei bazate pe Opportunities și măsurăm impactul săptămânal.</p>
+			<p><strong>60-90 zile:</strong> automatizăm notificările și conectăm rezultatele la bugetele de producție. Dacă AI cere constant un tip de asset (ex: video vertical), îl includem în planul trimestrial și alocăm resursele.</p>
+
+			<p>Prin acest proces, Performance Max devine un laborator continuu de testare creativă, nu doar o cutie neagră. AI-ul ne dă semnale clare, dar noi rămânem în controlul execuției și al brandului.</p>
+
+			<p class="text-sm text-slate-400 mt-10">Sursa: <a href="https://searchengineland.com/performance-max-creative-intelligence-dashboard-469210" class="text-cyan-300 underline-offset-2 hover:underline" target="_blank" rel="noopener">Search Engine Land, 16 feb 2026</a></p>
+		</article>
+	</main>
+</Layout>

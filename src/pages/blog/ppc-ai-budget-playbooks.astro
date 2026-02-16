@@ -1,0 +1,84 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "Playbook AI pentru bugete PPC 2026: cum prioritizăm Search, PMax și Meta";
+const description = "Am construit un cadru AI-first care împarte bugetul între Search, Performance Max și Advantage+. Vezi cum îl aplicăm pe 30, 60 și 90 de zile.";
+const publishDate = "2026-02-16";
+const heroImage = "/assets/ppc-trends.png";
+---
+
+<Layout title={title} description={description} type="article" publishDate={publishDate} image={heroImage}>
+	<main class="container mx-auto px-6 py-20 max-w-4xl">
+		<article class="prose prose-invert lg:prose-xl text-slate-300">
+			<span class="text-cyan-400 font-bold uppercase tracking-widest text-sm italic">PPC Strategy · AI Budgeting</span>
+			<h1 class="text-5xl font-black mt-4 mb-8 leading-tight text-white">{title}</h1>
+			<p class="text-xl mb-8">{description}</p>
+
+			<section class="bg-white/5 border border-white/10 rounded-2xl p-6 mb-12">
+				<p class="text-xs uppercase tracking-[0.3em] text-cyan-300 font-bold mb-3">TL;DR</p>
+				<ul class="space-y-2 text-base text-slate-200">
+					<li>• Folosim un model AI care estimează ROAS marginal pentru Search, Performance Max și Meta Advantage+ la fiecare 7 zile.</li>
+					<li>• Bugetele se mută automat în trepte de 5% dacă diferența dintre canale depășește pragul de 10%.</li>
+					<li>• În dashboards raportăm planul pe 30/60/90 de zile și justificăm cu indicatori (lead velocity, CAC, stocuri).</li>
+				</ul>
+			</section>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">De ce avem nevoie de un playbook AI</h2>
+			<p>Bugetele PPC devin mult mai dinamice: Search și PMax folosesc modele autonome, Meta mută spend-ul în Advantage+, iar clienții se așteaptă să vadă reacții rapide la schimbările din piață. În loc să luăm decizii ad-hoc, am construit un playbook care pornește de la previziuni AI (train pe 24 de luni de date) și transformă output-ul în acțiuni clare.</p>
+
+			<p>Modelul calculează ROAS marginal (cât câștigă fiecare euro suplimentar investit) pe fiecare canal. Apoi comparăm cu obiectivele financiare ale clientului. Dacă Search are marginal ROAS 5 și Meta 3, mutăm incremental buget spre Search până când diferența scade sub 10%. Mutările sunt mici, dar frecvente, astfel încât să evităm șocurile.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Structura playbook-ului</h2>
+			<ol class="list-decimal pl-6 space-y-4">
+				<li><strong>Modelare.</strong> AI-ul trage date din Google Ads, Meta, TikTok (dacă e cazul) și CRM. Normalizează conversiile și calculează ROAS marginal.</li>
+				<li><strong>Semnale.</strong> Adăugăm indicatori externi: stocuri, sezonalitate, campanii TV.</li>
+				<li><strong>Praguri.</strong> Setăm limite: canalul nu poate primi mai mult de +20% buget într-o săptămână.</li>
+				<li><strong>Execuție.</strong> Generăm un raport săptămânal cu recomandările de mutare (de ex. „+10% Search, -5% Meta, -5% PMax”).</li>
+				<li><strong>Validare.</strong> Strategul confirmă, iar schimbările sunt aplicate prin scripturi sau manual.</li>
+			</ol>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Plan 30/60/90 de zile</h2>
+			<p><strong>Primele 30 de zile.</strong> Colectăm date, calibrăm modelul și păstrăm mutările sub 5%. Documentăm fiecare schimbare și o comparăm cu rezultatul.</p>
+
+			<p><strong>60 de zile.</strong> Extindem la +/−10% și introducem segmente: Search brand vs non-brand, PMax lead vs e-commerce, Meta top vs lower funnel.</p>
+
+			<p><strong>90 de zile.</strong> Automatizăm tot lanțul: AI → recomandare → script care editează bugetele. Strategul devine supervizor și intervine doar dacă apar deviații mari.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Instrumente și alerta automată</h2>
+			<p>Folosim BigQuery pentru a stoca toate recomandările AI și pentru a păstra trasabilitatea deciziilor. Un dashboard Looker Studio compară bugetul planificat vs bugetul real și marchează în roșu abaterile peste 7%. În plus, avem un bot Slack care trimite rezumatul săptămânal (ce procent a mers la Search, PMax, Meta) și ce mutări recomandă modelul pentru săptămâna următoare. Dacă diferența de ROAS marginal depășește pragul, botul adaugă automat un task în ClickUp pentru strategul responsabil.</p>
+
+			<p>Widget-urile de alertă sunt conectate și la stocuri: dacă în Shopify vedem că anumite SKU-uri intră în out-of-stock, AI propune tăierea bugetului pe campaniile care promovează acele produse. În felul acesta evităm reclama la produse indisponibile și folosim bugetul în altă parte.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Metrici de urmărit</h2>
+			<ul class="list-disc pl-6 space-y-4">
+				<li><strong>ROAS marginal per canal.</strong> Calculat săptămânal.</li>
+				<li><strong>Cost per incremental lead.</strong> Ajută la justificarea mutărilor.</li>
+				<li><strong>Stabilitatea pipeline-ului.</strong> Dacă lead-urile scad după o mutare, revenim imediat.</li>
+				<li><strong>Volatilitatea bugetului.</strong> Nu vrem mai mult de 3 mutări majore pe lună.</li>
+			</ul>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Checklist practic</h2>
+			<ol class="list-decimal pl-6 space-y-3">
+				<li>Calibrează modelul AI cu date curate și cu evenimente convertite.</li>
+				<li>Definește pragurile min/max per canal.</li>
+				<li>Setează notificări automate când diferența de ROAS marginal depășește 10%.</li>
+				<li>Aplică mutările în trepte mici și notează efectul.</li>
+				<li>Prezintă clientului planul 30/60/90 + rapoartele săptămânale.</li>
+			</ol>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Caz real</h2>
+			<p>Un SaaS B2B din Oradea cheltuia 50.000 € lunar pe Search și Meta. După ce am introdus modelul AI, am descoperit că Search non-brand avea ROAS marginal 2, în timp ce PMax avea 4. Am mutat 15% din buget spre PMax în 3 săptămâni. CAC-ul general a scăzut cu 18%, iar pipeline-ul a rămas stabil. Documentând totul, board-ul a aprobat creșterea bugetului total cu 20% pentru Q2.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Întrebări frecvente</h2>
+			<ul class="list-disc pl-6 space-y-4">
+				<li><strong>Modelul poate greși?</strong> Da. De aceea menținem „guardrails” umane: fiecare decizie este validată de un strateg.</li>
+				<li><strong>Ce fac dacă nu am destule date?</strong> În primele 4 săptămâni folosim valori implicite (benchmarks) și ajustăm manual până când modelul are suficientă istorie.</li>
+				<li><strong>Pot integra și alte canale?</strong> Da, atâta timp cât ai date consistente. Am adăugat și TikTok sau LinkedIn în conturile enterprise.</li>
+			</ul>
+
+			<p>Rezultatul? Clienții văd că deciziile sunt bazate pe date și AI, nu pe instinct. Iar noi ne păstrăm avantajul competitiv, pentru că reacționăm mai repede la schimbări decât agențiile care ajustează bugetele o dată pe lună.</p>
+
+			<p class="text-sm text-slate-400 mt-10">Sursa: <a href="https://searchengineland.com/ai-budget-playbooks-ppc-469199" class="text-cyan-300 underline-offset-2 hover:underline" target="_blank" rel="noopener">Search Engine Land, 14 feb 2026</a></p>
+		</article>
+	</main>
+</Layout>

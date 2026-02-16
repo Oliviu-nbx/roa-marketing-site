@@ -1,0 +1,79 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "AI Mode guardrails în Google Ads: cum le implementăm în campaniile Search & PMax";
+const description = "Google a publicat setul complet de reguli pentru AI Mode în Search Ads. Îți arătăm ce înseamnă pentru brief, aprobare și monitorizare zilnică.";
+const publishDate = "2026-02-16";
+const heroImage = "/assets/ppc-trends.png";
+---
+
+<Layout title={title} description={description} type="article" publishDate={publishDate} image={heroImage}>
+	<main class="container mx-auto px-6 py-20 max-w-4xl">
+		<article class="prose prose-invert lg:prose-xl text-slate-300">
+			<span class="text-cyan-400 font-bold uppercase tracking-widest text-sm italic">Google Ads · AI Mode</span>
+			<h1 class="text-5xl font-black mt-4 mb-8 leading-tight text-white">{title}</h1>
+			<p class="text-xl mb-8">{description}</p>
+
+			<section class="bg-white/5 border border-white/10 rounded-2xl p-6 mb-12">
+				<p class="text-xs uppercase tracking-[0.3em] text-cyan-300 font-bold mb-3">TL;DR</p>
+				<ul class="space-y-2 text-base text-slate-200">
+					<li>• AI Mode nu mai este un „buton magic”. Google cere guardrails explicite pe audiențe, mesaje sensibile și aprobări umane vizibile.</li>
+					<li>• Fără un checklist de policy și brand safety, AI Mode va rula doar în „safe defaults”, ceea ce înseamnă creativ repetitiv și foarte conservator.</li>
+					<li>• La ROA transformăm guardrails într-un playbook: prompt standardizat, document de excluderi și log de revizuire la 72h.</li>
+				</ul>
+			</section>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Ce a anunțat Google</h2>
+			<p>La începutul săptămânii, Google a publicat în Help Center actualizarea finală pentru AI Mode (Search Labs → campanii Search și Performance Max). Documentul detaliază cum trebuie livrate guardrails: liste de subiecte interzise, tone guidance, cuvinte obligatorii, disclaimere și reguli privind audiențele vulnerabile. Fără aceste instrucțiuni, AI Mode va genera doar variante „safe” bazate pe policy, deci mesajele nu vor reflecta poziționarea brandului.</p>
+
+			<p>Guardrails funcționează practic ca un contract între echipa noastră și model: îi descriem explicit ce poate și ce nu poate face. Google a introdus și un journal intern (Activity Log) unde fiecare intervenție umană trebuie documentată. Astfel, dacă apar reclamații, poți arăta când a fost modificat promptul sau ce input i-ai dat AI-ului.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Structura de guardrails pe care o folosim la ROA</h2>
+			<ol class="list-decimal pl-6 space-y-4">
+				<li><strong>Brand Voice Capsule.</strong> 3 paragrafe scurte cu ton, cuvinte obligatorii și expresii de evitat. Exemplu: „Nu folosim superlative absolute („cel mai ieftin”) și preferăm verbe active („optimizează”, „scalăm”).”</li>
+				<li><strong>Compliance eCommerce/PPC.</strong> Liste cu subiecte interzise (ex: promisiuni financiare) și disclaimerele pe care AI trebuie să le includă când vorbește despre promoții.</li>
+				<li><strong>Audiențe vulnerabile.</strong> Segmentăm pe verticală: sănătate, educație, finanțe. Pentru fiecare scriem: „Nu te adresa minorilor”, „Nu implica diagnostice”.</li>
+				<li><strong>Workflow de aprobare.</strong> Notăm cine validează (Account Lead) și în ce interval (max 12 ore). AI Mode nu poate publica asset fără bifa „Reviewed”.</li>
+				<li><strong>Log operational.</strong> Folosim un Notion dedicat unde capturăm promptul, output-ul și decizia (acceptat/rescris) pentru fiecare iterație.</li>
+			</ol>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Cum integrezi guardrails în campanie</h2>
+			<p>În interfața Search Ads 360 sau în Experiments, când activezi AI Mode, primești câmpuri pentru „Brand Guide” și „Restricted Content”. Introdu acolo rezumatul din pașii de mai sus. Atenție: dacă nu dai destule detalii, Google completează automat cu politici generice și închide multe teme sensibile. Pentru brandurile D2C agresive, asta înseamnă pierdere de diferențiere. De aceea, noi precompletăm câmpurile dintr-un fișier JSON, astfel încât fiecare campanie moștenește guardrails corecte.</p>
+
+			<p>În Performance Max, guardrails influențează asset-urile text și headline-urile dinamice. Observație importantă: dacă ai asset groups multiple cu strategii diferite (promo vs evergreen), trebuie să creezi guardrails separate. Altfel, AI Mode poate „amesteca” tonurile. Noi duplicăm playbook-ul și schimbăm doar secțiunea de CTA.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Monitorizare și KPI-uri</h2>
+			<ul class="list-disc pl-6 space-y-3">
+				<li><strong>Flag Rate.</strong> Câte ad-uri generate de AI sunt respinse de policy sau de echipa de QA. Țintim sub 5%.</li>
+				<li><strong>Time to Review.</strong> Durata dintre generare și aprobare. Automatizăm notificările în Slack pentru a rămâne sub 4 ore.</li>
+				<li><strong>Impact pe CTR.</strong> Comparăm CTR-ul asset-urilor AI vs manuale. Dacă diferența este sub 10%, păstrăm ambele surse.</li>
+				<li><strong>Velocity.</strong> Numărul de variații valide generate pe săptămână. Scopul e să dublăm iterațiile fără să sacrificăm compliance.</li>
+			</ul>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Checklist rapid</h2>
+			<ol class="list-decimal pl-6 space-y-3">
+				<li>Scrie brand voice capsule și listează cuvintele interzise.</li>
+				<li>Definește audiențele care au nevoie de protecție specială.</li>
+				<li>Documentează procesul de aprobare și timpul maxim.</li>
+				<li>Activează guardrails în AI Mode și testează un set mic de asset-uri.</li>
+				<li>Loghează totul și optimizează prompts în funcție de rezultatele KPI.</li>
+			</ol>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Instrumente și automatizări care ne ajută</h2>
+			<p>Guardrails funcționează bine doar dacă sunt susținute de date. Am construit un workflow în care Activity Log este exportat în BigQuery și vizualizat în Looker Studio. Dashboard-ul scoate în evidență câte output-uri au fost respinse, ce cuvinte declanșează alertele și ce editor le-a aprobat. În momentul în care vedem un spike de respingeri, știm că trebuie să ajustăm promptul sau să completăm guardrails cu noi exemple.</p>
+
+			<p>Pe QA folosim un tool intern construit cu Apps Script („AI Copy Scanner”) care verifică dacă textul include disclaimerele obligatorii, lungimea maximă și tonul corect. Scannerul rulează pe toate asset-urile înainte de publicare, iar rezultatul se atașează la taskul din Asana, astfel încât auditorii interni să aibă context complet.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Întrebări frecvente de la clienți</h2>
+			<ul class="list-disc pl-6 space-y-4">
+				<li><strong>„Putem lăsa AI-ul să publice fără om?”</strong> Tehnic, da, dar Google recomandă revizuire umană. În plus, multe industrii (financiar, medical) impun legal aprobarea manuală.</li>
+				<li><strong>„Guardrails scad performanța?”</strong> Doar dacă devin prea restrictive. Testăm două niveluri: unul complet și unul moderat; le comparăm și păstrăm varianta care maximizează ROAS fără a încălca policy.</li>
+				<li><strong>„Cât durează implementarea?”</strong> Dacă există deja brand book și policy, 1 zi. Dacă nu, planificăm workshop de 2-3 zile cu stakeholderii.</li>
+			</ul>
+
+			<p>Concluzia: AI Mode este util doar dacă îi dai un cadru clar. Fără guardrails, rezultatul va fi un mix de mesaje generice. Cu ele, poți genera creativ de calitate în ritm zilnic și demonstrezi clienților că respecți reglementările.</p>
+
+			<p class="text-sm text-slate-400 mt-10">Sursa: <a href="https://searchengineland.com/google-ads-ai-mode-guardrails-469301" class="text-cyan-300 underline-offset-2 hover:underline" target="_blank" rel="noopener">Search Engine Land, 16 feb 2026</a></p>
+		</article>
+	</main>
+</Layout>
