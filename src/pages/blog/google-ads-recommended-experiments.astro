@@ -1,0 +1,43 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "Recommended Experiments: motorul de testare pe care Google Ads ți-l servește direct în dashboard";
+const description = "Google adaugă în pagina Experiments sugestii preconfigurate (bidding, creativ, URL expansion). Iată cum le folosim ca să avem un calendar de teste non-stop.";
+const publishDate = "2026-02-16";
+const heroImage = "/assets/ppc-trends.png";
+---
+
+<Layout title={title} description={description} type="article" publishDate={publishDate} image={heroImage}>
+	<main class="container mx-auto px-6 py-20 max-w-4xl">
+		<article class="prose prose-invert lg:prose-xl text-slate-300">
+			<span class="text-cyan-400 font-bold uppercase tracking-widest text-sm italic">Testing · Automation</span>
+			<h1 class="text-5xl font-black mt-4 mb-8 leading-tight text-white">{title}</h1>
+			<p class="text-xl mb-8">{description}</p>
+
+			<section class="bg-white/5 border border-white/10 rounded-2xl p-6 mb-12">
+				<p class="text-xs uppercase tracking-[0.3em] text-cyan-300 font-bold mb-3">TL;DR</p>
+				<ul class="space-y-2 text-base text-slate-200">
+					<li>• Google îți propune teste concrete (ex: trecerea pe Maximize Conversion Value) gata configurate.</li>
+					<li>• Poți porni experimentul imediat sau îl modifici și salvezi ca template pentru alte conturi.</li>
+					<li>• Recomandările apar în același loc cu Experiments, deci echipele nu mai sar între sugestii din Recommendations tab și zona de testare.</li>
+				</ul>
+			</section>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Cum îl folosim la ROA</h2>
+			<ol class="list-decimal pl-6 space-y-3">
+				<li><strong>Creăm un backlog.</strong> În fiecare cont salvăm screenshot + parametrii experimentului propus și îl logăm în ClickUp.</li>
+				<li><strong>Stabilim un guardrail.</strong> Nu pornim test fără ipoteză și fără KPIs; recomandarea este doar un shortcut de setup.</li>
+				<li><strong>Reciclăm ce merge.</strong> Dacă un experiment oferit de Google aduce lift, îl convertim în playbook (ex: „URL expansion test trimestrial”).</li>
+			</ol>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Riscuri de evitat</h2>
+			<ul class="list-disc pl-6 space-y-4">
+				<li><strong>Overtesting.</strong> Nu rula simultan prea multe sugestii – vei dilua bugetul.</li>
+				<li><strong>Recomandări nepotrivite.</strong> Un cont cu obiectiv lead-gen poate primi test de final URL expansion, dar dacă nu ai landinguri potrivite vei strica rezultatul.</li>
+				<li><strong>Documentează.</strong> Chiar dacă setup-ul e preconfigurat, scrie motivul și rezultatul, altfel nu poți învăța din ele.</li>
+			</ul>
+
+			<p class="text-sm text-slate-400 mt-10">Sursa: <a href="https://searchengineland.com/google-ads-shows-recommended-experiments-468887" class="text-cyan-300 underline-offset-2 hover:underline" target="_blank" rel="noopener">Search Engine Land, 15 feb 2026</a></p>
+		</article>
+	</main>
+</Layout>

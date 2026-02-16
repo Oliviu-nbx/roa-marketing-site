@@ -1,0 +1,48 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "Product Gap Radar: noul tab din Google Ads care îți arată unde lipsesc produsele";
+const description = "Google a adăugat în Products un panou de eligibilitate pe campanie. Vezi cum îl folosești ca să nu mai pierzi produse din Shopping și Performance Max.";
+const publishDate = "2026-02-16";
+const heroImage = "/assets/product-eligibility-dashboard.png";
+---
+
+<Layout title={title} description={description} type="article" publishDate={publishDate} image={heroImage}>
+	<main class="container mx-auto px-6 py-20 max-w-4xl">
+		<article class="prose prose-invert lg:prose-xl text-slate-300">
+			<span class="text-cyan-400 font-bold uppercase tracking-widest text-sm italic">Shopping · Performance Max</span>
+			<h1 class="text-5xl font-black mt-4 mb-8 leading-tight text-white">{title}</h1>
+			<p class="text-xl mb-8">{description}</p>
+
+			<img src={heroImage} alt="Panou de eligibilitate Google Ads Products" class="rounded-3xl border border-white/10 mb-12 shadow-2xl" />
+
+			<section class="bg-white/5 border border-white/10 rounded-2xl p-6 mb-12">
+				<p class="text-xs uppercase tracking-[0.3em] text-cyan-300 font-bold mb-3">TL;DR</p>
+				<ul class="space-y-2 text-base text-slate-200">
+					<li>• Panoul „Eligible/Not eligible” te scapă de raportul exportat în Sheets pentru a detecta ce SKU lipsește dintr-o campanie.</li>
+					<li>• Poți prioritiza feed fix, policy sau bidding direct din Products, fără să sari între campanii Shopping vs. PMax.</li>
+					<li>• Folosește filtrele pentru a crea „playbook-uri” zilnice: ce produse trebuie împinse în PMax, ce trebuie scoase din overlapp.</li>
+				</ul>
+			</section>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Ce s-a schimbat concret</h2>
+			<p>În Products a apărut un tab cu două coloane: „Eligible” și „Not eligible”. Pentru fiecare produs vezi lista de campanii în care rulează sau este blocat, plus motivul (feed, policy, bidding, buget). Actualizarea a fost surprinsă prima dată de Hana Kobzová și confirmată de Search Engine Land pe 16 februarie 2026.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">De ce ne pasă</h2>
+			<ul class="list-disc pl-6 space-y-4">
+				<li><strong>Detectezi rapid găurile de acoperire.</strong> Nu mai pierzi 24h până când realizezi că produsul best seller nu s-a mai livrat în niciun PMax.</li>
+				<li><strong>Previi suprapunerile Shopping + PMax.</strong> Vizibilitatea la nivel de SKU îți arată dacă două campanii licitează simultan, ceea ce mănâncă bugetul.</li>
+				<li><strong>Stabilești un playbook zilnic.</strong> Agenția poate seta o rutină de 15 minute unde scoate problemele critice și le loghează în Asana/ClickUp.</li>
+			</ul>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Checklist de implementare pentru ROA Marketing</h2>
+			<ol class="list-decimal pl-6 space-y-3">
+				<li>Activează coloana nouă în Products și salvează un view cu filtrele importante (brand, categorie, marjă).</li>
+				<li>Leagă-l de un sheet/CRM pentru a trimite zilnic statusul produselor cu prioritate A.</li>
+				<li>În rapoartele pentru clienți, adaugă secțiunea „Product Gap Radar” și arată exact câte SKU-uri au fost remediate.</li>
+			</ol>
+
+			<p class="text-sm text-slate-400 mt-10">Sursa: <a href="https://searchengineland.com/google-ads-simplifies-product-campaign-tracking-468852" class="text-cyan-300 underline-offset-2 hover:underline" target="_blank" rel="noopener">Search Engine Land, 16 feb 2026</a></p>
+		</article>
+	</main>
+</Layout>

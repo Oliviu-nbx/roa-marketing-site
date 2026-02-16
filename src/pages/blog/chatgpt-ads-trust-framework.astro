@@ -1,0 +1,46 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "Cum vor funcționa reclamele în ChatGPT: ghidul de trust al OpenAI";
+const description = "OpenAI pornește primele teste de ad-uri în ChatGPT pentru utilizatorii Free și Go. Am sintetizat regulile, oportunitățile și ce trebuie să pregătim ca agenție.";
+const publishDate = "2026-02-16";
+const heroImage = "/assets/chatgpt-ads-preview.png";
+---
+
+<Layout title={title} description={description} type="article" publishDate={publishDate} image={heroImage}>
+	<main class="container mx-auto px-6 py-20 max-w-4xl">
+		<article class="prose prose-invert lg:prose-xl text-slate-300">
+			<span class="text-cyan-400 font-bold uppercase tracking-widest text-sm italic">AI Interfaces · Trust & Safety</span>
+			<h1 class="text-5xl font-black mt-4 mb-8 leading-tight text-white">{title}</h1>
+			<p class="text-xl mb-8">{description}</p>
+
+			<img src={heroImage} alt="Mockup reclame în ChatGPT" class="rounded-3xl border border-white/10 mb-12 shadow-2xl" />
+
+			<section class="bg-white/5 border border-white/10 rounded-2xl p-6 mb-12">
+				<p class="text-xs uppercase tracking-[0.3em] text-cyan-300 font-bold mb-3">TL;DR</p>
+				<ul class="space-y-2 text-base text-slate-200">
+					<li>• Ads apar doar pentru utilizatorii Free / Go; Plus, Pro și Enterprise rămân fără reclame.</li>
+					<li>• Modelul nu „vede” reclama – e separată vizual și tehnic, iar subiectele sensibile sunt blocate.</li>
+					<li>• OpenAI vrea agenți de publicitate conversaționali: descrii obiectivul, iar AI îți construiește campania.</li>
+				</ul>
+			</section>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Guardrails declarate de OpenAI</h2>
+			<ul class="list-disc pl-6 space-y-4">
+				<li><strong>Separație totală.</strong> Reclama stă într-un card dedicat, cu label clar, fără să influențeze răspunsul modelului.</li>
+				<li><strong>Privacy.</strong> Conversațiile nu sunt partajate cu advertiserii; targeting-ul se bazează pe contextul imediat.</li>
+				<li><strong>Opt-out facil.</strong> Poți ajusta personalizarea sau plăti un plan superior pentru a elimina complet ads.</li>
+				<li><strong>Topicuri sensibile excluse.</strong> Nimic despre sănătate, politică, finanțe personale fără consimțământ clar.</li>
+			</ul>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Ce oportunități deschide pentru ROA Marketing</h2>
+			<ol class="list-decimal pl-6 space-y-3">
+				<li><strong>Campanii high-intent.</strong> Conversațiile sunt deja în etapă de decizie („recomandă-mi o agenție PPC”).</li>
+				<li><strong>Agent asistent.</strong> OpenAI vrea să genereze campania după briefing; putem standardiza template-urile noastre pentru a fi importate rapid.</li>
+				<li><strong>Raportare nouă.</strong> Va trebui să monitorizăm interacțiunile conversaționale și să documentăm ce prompts declanșează anunțurile.</li>
+			</ol>
+
+			<p class="text-sm text-slate-400 mt-10">Sursa: <a href="https://searchengineland.com/openai-details-how-ads-will-work-in-chatgpt-468929" class="text-cyan-300 underline-offset-2 hover:underline" target="_blank" rel="noopener">Search Engine Land, 16 feb 2026</a></p>
+		</article>
+	</main>
+</Layout>

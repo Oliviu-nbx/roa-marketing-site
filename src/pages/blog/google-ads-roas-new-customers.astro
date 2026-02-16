@@ -1,0 +1,46 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "Cum calculezi automat valoarea unui client nou în Google Ads (și de ce contează)";
+const description = "Google propune singur conversion value pentru campaniile cu obiectiv New Customer Acquisition, pornind de la ROAS-ul țintă. Iată cum îl configurăm corect.";
+const publishDate = "2026-02-16";
+const heroImage = "/assets/ppc-trends.png";
+---
+
+<Layout title={title} description={description} type="article" publishDate={publishDate} image={heroImage}>
+	<main class="container mx-auto px-6 py-20 max-w-4xl">
+		<article class="prose prose-invert lg:prose-xl text-slate-300">
+			<span class="text-cyan-400 font-bold uppercase tracking-widest text-sm italic">Acquisition · ROAS</span>
+			<h1 class="text-5xl font-black mt-4 mb-8 leading-tight text-white">{title}</h1>
+			<p class="text-xl mb-8">{description}</p>
+
+			<section class="bg-white/5 border border-white/10 rounded-2xl p-6 mb-12">
+				<p class="text-xs uppercase tracking-[0.3em] text-cyan-300 font-bold mb-3">TL;DR</p>
+				<ul class="space-y-2 text-base text-slate-200">
+					<li>• Introduci ROAS-ul dorit pentru clienți noi, iar Google îți generează automat o valoare de conversie realistă.</li>
+					<li>• Evităm guesswork-ul ("100 lei" pentru toată lumea) și aliniem bidding-ul la LTV + marjă.</li>
+					<li>• Următorul pas va fi granularitatea pe campanie / produs, dar până atunci avem un baseline solid.</li>
+				</ul>
+			</section>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Cum funcționează</h2>
+			<p>În setările de New Customer Acquisition adaugi un ROAS țintă. Platforma îți propune o valoare de conversie conform țintei, astfel încât bidding-ul să trateze corect lead-ul din perspectiva profitabilității. Nu e încă dinamic pe campanii, dar este un salt uriaș față de valorile statice introduse manual.</p>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">De ce este relevant pentru clienții ROA</h2>
+			<ul class="list-disc pl-6 space-y-4">
+				<li><strong>Scapi de discuția „cât valorează un client nou?”.</strong> Putem configura logic, nu intuitiv.</li>
+				<li><strong>Mai multă agresivitate acolo unde merită.</strong> Brandurile cu repeat puternic pot licita mai sus pentru first purchase fără să dea peste cap PnL-ul.</li>
+				<li><strong>Audit ușor.</strong> Când preluăm un cont, verificăm dacă valoarea sugerată e activă; dacă nu, avem un quick win.</li>
+			</ul>
+
+			<h2 class="text-3xl font-bold mt-12 mb-6 text-white">Pași de implementare</h2>
+			<ol class="list-decimal pl-6 space-y-3">
+				<li>Activează New Customer Acquisition în campaniile PMax / Search și setează ROAS-ul țintă.</li>
+				<li>Notează valoarea propusă și compar-o cu modelul tău de LTV. Ajustează dacă există diferențe mari.</li>
+				<li>Monitorizează rapoartele „Customer Acquisition” pentru a vedea dacă volumul de clienți noi crește proporțional cu bugetul.</li>
+			</ol>
+
+			<p class="text-sm text-slate-400 mt-10">Sursa: <a href="https://searchengineland.com/google-ads-adds-roas-based-tool-for-valuing-new-customers-469247" class="text-cyan-300 underline-offset-2 hover:underline" target="_blank" rel="noopener">Search Engine Land, 16 feb 2026</a></p>
+		</article>
+	</main>
+</Layout>
