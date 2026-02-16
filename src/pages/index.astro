@@ -130,6 +130,30 @@ const dateFilters = [
 ---
 
 <Layout title="Roa Marketing — Știri & Analize">
+	<div slot="header-search" class="w-full">
+		<div class="bg-white/5 border border-white/10 rounded-3xl p-3 flex flex-wrap items-center gap-3 shadow-xl">
+			<div class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-3 py-2 text-sm text-slate-200">
+				<div class="text-[0.6rem] uppercase tracking-[0.3em] text-slate-500">Categorie</div>
+				<select id="categorySelect" class="bg-transparent text-white font-semibold focus:outline-none appearance-none">
+					{categories.map(category => (
+						<option value={category}>{category}</option>
+					))}
+				</select>
+			</div>
+			<div class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-3 py-2 text-sm text-slate-200">
+				<div class="text-[0.6rem] uppercase tracking-[0.3em] text-slate-500">Dată</div>
+				<select id="dateSelect" class="bg-transparent text-white font-semibold focus:outline-none appearance-none">
+					{dateFilters.map(filter => (
+						<option value={filter.value}>{filter.label}</option>
+					))}
+				</select>
+			</div>
+			<div class="relative flex-1 min-w-[200px]">
+				<input id="postSearch" type="search" placeholder="Caută după titlu, categorie sau cuvinte cheie" class="w-full bg-white/5 border border-white/10 rounded-2xl pl-12 pr-5 py-3 text-base focus:border-cyan-400 focus:outline-none placeholder:text-slate-500" />
+				<span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm">⌘K</span>
+			</div>
+		</div>
+	</div>
 	<div class="container mx-auto px-6 py-16">
 		<section class="text-center space-y-6 mb-12">
 			<p class="text-sm uppercase tracking-[0.4em] text-cyan-300 font-bold">Insights zilnice</p>
@@ -137,32 +161,9 @@ const dateFilters = [
 			<p class="text-lg text-slate-400 max-w-3xl mx-auto">Filtrează după categorie sau caută în timp real ideile care te interesează. Tot conținutul este produs de swarm-ul nostru specializat pe marketing de performanță.</p>
 		</section>
 
-		<section class="sticky top-24 z-10 bg-slate-950/80 backdrop-blur-xl border border-white/10 rounded-3xl p-6 mb-10 shadow-2xl space-y-4">
-			<div class="grid gap-4 md:grid-cols-2">
-				<div class="md:hidden">
-					<label for="categorySelect" class="text-xs uppercase tracking-[0.3em] text-slate-400 font-bold mb-2 block">Categorie</label>
-					<div class="relative">
-						<select id="categorySelect" class="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 text-sm text-white focus:border-cyan-400 focus:outline-none appearance-none">
-							{categories.map(category => (
-								<option value={category}>{category}</option>
-							))}
-						</select>
-						<span class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-xs">▼</span>
-					</div>
-				</div>
-				<div>
-					<label for="dateSelect" class="text-xs uppercase tracking-[0.3em] text-slate-400 font-bold mb-2 block">Dată publicare</label>
-					<div class="relative">
-						<select id="dateSelect" class="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 text-sm text-white focus:border-cyan-400 focus:outline-none appearance-none">
-							{dateFilters.map(filter => (
-								<option value={filter.value}>{filter.label}</option>
-							))}
-						</select>
-						<span class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-xs">▼</span>
-					</div>
-				</div>
-			</div>
-			<div class="hidden md:flex md:flex-wrap items-center gap-3">
+		<section class="mb-10">
+			<p class="md:hidden text-xs uppercase tracking-[0.3em] text-slate-500 mb-4 text-center">Folosește bara din header pentru căutare și filtre.</p>
+			<div class="hidden md:flex flex-wrap items-center gap-3 justify-center">
 				{categories.map(category => (
 					<button
 						type="button"
@@ -173,10 +174,6 @@ const dateFilters = [
 						{category}
 					</button>
 				))}
-			</div>
-			<div class="relative">
-				<input id="postSearch" type="search" placeholder="Caută după titlu, categorie sau cuvinte cheie" class="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-3 text-base focus:border-cyan-400 focus:outline-none placeholder:text-slate-500" />
-				<span class="absolute right-5 top-1/2 -translate-y-1/2 text-slate-500 text-sm">⌘K</span>
 			</div>
 		</section>
 

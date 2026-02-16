@@ -74,18 +74,21 @@ const schema = type === 'article' ? {
 	</head>
 	<body class="bg-slate-900 text-white selection:bg-cyan-500 font-sans antialiased">
 		<header class="fixed w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
-			<div class="container mx-auto px-6 h-20 flex items-center justify-between">
-				<a href="/" class="text-2xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">
+			<div class="container mx-auto px-6 py-4 flex flex-col gap-4">
+				<div class="flex items-center justify-between gap-6">
+					<a href="/" class="text-2xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">
                     ROA<span class="text-cyan-400">.</span>
                 </a>
-				<nav class="hidden md:flex gap-8 items-center text-sm font-bold uppercase tracking-widest text-slate-400">
-					<a href="/" class="hover:text-cyan-400 transition-colors">Acasă</a>
-					<a href="/blog" class="hover:text-cyan-400 transition-colors">Blog</a>
-				</nav>
+					<nav class="hidden md:flex gap-8 items-center text-sm font-bold uppercase tracking-widest text-slate-400">
+						<a href="/" class="hover:text-cyan-400 transition-colors">Acasă</a>
+						<a href="/blog" class="hover:text-cyan-400 transition-colors">Blog</a>
+					</nav>
+				</div>
+				<slot name="header-search" />
 			</div>
 		</header>
 
-		<main class="pt-24 min-h-screen">
+		<main class="pt-32 min-h-screen">
 			<slot />
 		</main>
 
